@@ -1,31 +1,63 @@
-'use strict';
+const CACHE_NAME = 'vp-portfolio-cache-v2';
+const PRECACHE_ASSETS = [
+  './',
+  'index.html',
+  'app.bundle.js?v=19',
+  'favicon.png?v=2',
+  'manifest.json',
+  'assets/asset/myself/main_01_nobg.png',
+  'assets/asset/myself/project_experience_nobg.png',
+  'assets/asset/myself/avatar_nobg.png',
+  'assets/AssetManifest.bin.json',
+  'assets/FontManifest.json'
+];
 
-self.addEventListener('install', () => {
+self.addEventListener('install', (event) => {
   self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(PRECACHE_ASSETS).catch((err) => {
+        console.warn('Pre-caching partial fail:', err);
+      });
+    })
+  );
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    (async () => {
-      try {
-        await self.registration.unregister();
-      } catch (e) {
-        console.warn('Failed to unregister the service worker:', e);
-      }
-
-      try {
-        const clients = await self.clients.matchAll({
-          type: 'window',
-        });
-        // Reload clients to ensure they are not using the old service worker.
-        clients.forEach((client) => {
-          if (client.url && 'navigate' in client) {
-            client.navigate(client.url);
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
           }
-        });
-      } catch (e) {
-        console.warn('Failed to navigate some service worker clients:', e);
-      }
-    })()
+        })
+      );
+    }).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const req = event.request;
+  // Ignore non-GET or cross-origin analytics/CDN calls
+  if (req.method !== 'GET') return;
+
+  const url = new URL(req.url);
+
+  // Stale-While-Revalidate for application assets
+  event.respondWith(
+    caches.match(req).then((cachedResponse) => {
+      const fetchPromise = fetch(req).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const resClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(req, resClone);
+          });
+        }
+        return networkResponse;
+      }).catch(() => cachedResponse);
+
+      return cachedResponse || fetchPromise;
+    })
   );
 });

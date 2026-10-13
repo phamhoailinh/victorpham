@@ -127,7 +127,8 @@
   <!-- Performance Preloads -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="app.bundle.js?v=11" as="script">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap">
+  <link rel="preload" href="app.bundle.js?v=19" as="script">
   <link rel="preload" href="assets/asset/myself/main_01_nobg.png" as="image">
 
   <style>
@@ -150,17 +151,76 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity .4s ease;
+      background: #070B17;
+      z-index: 999999;
+      transition: opacity .35s ease, visibility .35s ease;
     }
-    #splash .ring {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 3px solid rgba(108,123,255,.2);
-      border-top-color: #6C7BFF;
-      animation: spin .9s linear infinite;
+    .splash-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .splash-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #6C7BFF, #A855F7 50%, #22D3EE);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Outfit', 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: -1px;
+      box-shadow: 0 12px 32px rgba(108,123,255,0.4);
+      margin-bottom: 20px;
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 12px 32px rgba(108,123,255,0.35); }
+      50% { transform: scale(1.05); box-shadow: 0 16px 40px rgba(108,123,255,0.6); }
+    }
+    .splash-title {
+      color: #F1F5FF;
+      font-family: -apple-system, BlinkMacSystemFont, 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .splash-sub {
+      color: #94A3C4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .splash-bar {
+      width: 140px;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+    .splash-progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 40%;
+      background: linear-gradient(90deg, #6C7BFF, #22D3EE);
+      border-radius: 3px;
+      animation: loadSlide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes loadSlide {
+      0% { left: -40%; width: 40%; }
+      50% { left: 30%; width: 50%; }
+      100% { left: 100%; width: 30%; }
+    }
     .sr-only {
       position: absolute;
       width: 1px;
@@ -387,14 +447,21 @@
     </div>
   </noscript>
 
-  <div id="splash"><div class="ring"></div></div>
+  <div id="splash">
+    <div class="splash-card">
+      <div class="splash-logo">VP</div>
+      <div class="splash-title">Victor Pham</div>
+      <div class="splash-sub">Senior QA Engineer &amp; Test Lead</div>
+      <div class="splash-bar"><div class="splash-progress"></div></div>
+    </div>
+  </div>
   <script>
     (function () {
       function dismiss() {
         var s = document.getElementById('splash');
         if (s && s.style.opacity !== '0') {
           s.style.opacity = '0';
-          setTimeout(function () { if (s && s.parentNode) s.remove(); }, 400);
+          setTimeout(function () { if (s && s.parentNode) s.remove(); }, 350);
         }
       }
       window.addEventListener('app-first-frame', dismiss, { once: true });
@@ -406,9 +473,16 @@
         }
       });
       obs.observe(document.body, { childList: true, subtree: true });
-      setTimeout(dismiss, 4500);
+      setTimeout(dismiss, 3500);
+
+      // Register performance caching service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('sw.js').catch(function () {});
+        });
+      }
     })();
   </script>
-  <script src="app.bundle.js?v=11" async></script>
+  <script src="app.bundle.js?v=19" async></script>
 </body>
 </html>
