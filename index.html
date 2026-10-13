@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pham Hoai Linh | Senior QA Engineer</title>
+    <!-- Sử dụng font chữ Inter chuyên nghiệp -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CẤU HÌNH CƠ BẢN --- */
+        :root {
+            --bg-color: #f9fafb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --primary-color: #2563eb; /* Màu xanh dương chuyên nghiệp */
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* --- BỐ CỤC CHÍNH --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            padding: 40px;
+        }
+
+        /* --- HEADER (THÔNG TIN CÁ NHÂN) --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* --- CÁC SECTION (NỘI DUNG) --- */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Dấu gạch nhỏ bên trái tiêu đề */
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary-color);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* --- SKILLS TAGS (THẺ KỸ NĂNG) --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #eff6ff; /* Xanh nhạt */
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* --- EXPERIENCE TIMELINE --- */
+        .job {
+            margin-bottom: 30px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .job-company {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .job-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        
+        .job ul {
+            padding-left: 20px;
+            margin-top: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .job ul li {
+            margin-bottom: 8px;
+        }
+
+        /* --- RESPONSIVE CHO ĐIỆN THOẠI --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .job-header {
+                flex-direction: column;
+            }
+            .job-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>Pham Hoai Linh</h1>
+            <div class="title">Senior Quality Assurance Engineer / Test Lead</div>
+            <div class="contact-info">
+                <span>📍 Ho Chi Minh City</span>
+                <span>✉️ <a href="mailto:phamhoailinh1995@gmail.com">phamhoailinh1995@gmail.com</a></span>
+                <span>📞 0559004399</span>
+                <span>🔗 <a href="#" target="_blank">LinkedIn</a></span>
+            </div>
+        </header>
+
+        <!-- SUMMARY -->
+        <section>
+            <h2>Summary</h2>
+            <p>
+                Results-driven Quality Assurance Lead with over 7 years of hands-on experience in Software Testing (Manual & Automation). Proven track record of defining test strategies, leading QA teams, and implementing scalable automation frameworks across diverse domains including Finance, Insurance, and Automotive. Highly adaptable professional recognized for optimizing test coverage and ensuring the delivery of high-quality Web, Mobile, Desktop, and Embedded systems.
+            </p>
+        </section>
+
+        <!-- CORE COMPETENCIES -->
+        <section>
+            <h2>Core Competencies</h2>
+            <div class="skills-container">
+                <span class="skill-tag">QA Leadership</span>
+                <span class="skill-tag">Test Strategy</span>
+                <span class="skill-tag">Selenium WebDriver</span>
+                <span class="skill-tag">Cypress</span>
+                <span class="skill-tag">Appium</span>
+                <span class="skill-tag">Flutter Integration</span>
+                <span class="skill-tag">JMeter</span>
+                <span class="skill-tag">Postman (API)</span>
+                <span class="skill-tag">Java / C++ / Python / Dart</span>
+                <span class="skill-tag">Jira / Git / Jenkins</span>
+                <span class="skill-tag">SQL / NoSQL</span>
+            </div>
+        </section>
+
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="job-company">FPT Software Ho Chi Minh</span> | Test Lead</div>
+                    <div class="job-date">Dec 2024 – Jun 2025</div>
+                </div>
+                <div class="job-desc"><strong>Project:</strong> Mobile Health Insurance Platform (Hong Kong Market)</div>
+                <ul>
+                    <li>Directed a 10-member QA team as the Single Point of Contact (SPOC) for a key Hong Kong client.</li>
+                    <li>Defined the end-to-end test strategy and planned testing activities, ensuring 100% alignment with business requirements (SRS, BRD).</li>
+                    <li>Coached junior testers and streamlined the test design and review process, which reduced the defect leakage rate to production.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="job-company">FPT Software</span> | Full Stack Tester</div>
+                    <div class="job-date">Apr 2023 – Dec 2024</div>
+                </div>
+                <div class="job-desc"><strong>Project:</strong> Mobile Health Insurance System (Australia Market)</div>
+                <ul>
+                    <li>Developed and maintained automated UI and functional test scripts using Detox, Appium, and Cucumber.</li>
+                    <li>Conducted rigorous regression testing for new deployments, identifying and reporting critical bugs via Jira before production release.</li>
+                    <li>Integrated automated test suites into the Jenkins pipeline to facilitate continuous testing.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="job-company">FPT Software</span> | Automation Tester</div>
+                    <div class="job-date">Oct 2019 – Apr 2023</div>
+                </div>
+                <div class="job-desc"><strong>Project:</strong> Comprehensive Insurance Product Suite (Vietnam Market)</div>
+                <ul>
+                    <li>Architected and implemented robust automation frameworks utilizing Selenium WebDriver (Java), Cypress, and Flutter Integration Test.</li>
+                    <li>Conducted performance and load testing using JMeter, identifying system bottlenecks and ensuring application stability under peak loads.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <section>
+            <h2>Education & Honors</h2>
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Bachelor of Science in Information Technology</div>
+                    <div class="job-date">Ton Duc Thang University</div>
+                </div>
+            </div>
+            <div class="job">
+                <ul>
+                    <li><strong>Certifications:</strong> ISTQB Foundation, LOMA 281 (Meeting Customer Needs with Insurance).</li>
+                    <li><strong>Awards:</strong> Best Performer FSOFT (2020 - 2023), FSOFT Platinum Club (2020 - 2022).</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
