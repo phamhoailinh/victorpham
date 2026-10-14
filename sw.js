@@ -1,13 +1,14 @@
-const CACHE_NAME = 'vp-portfolio-cache-v2';
+const CACHE_NAME = 'vp-portfolio-cache-v5';
 const PRECACHE_ASSETS = [
   './',
   'index.html',
-  'app.bundle.js?v=19',
+  'app.bundle.js?v=22',
   'favicon.png?v=2',
   'manifest.json',
-  'assets/asset/myself/main_01_nobg.png',
-  'assets/asset/myself/project_experience_nobg.png',
-  'assets/asset/myself/avatar_nobg.png',
+  'assets/asset/myself/main_01_nobg.webp',
+  'assets/asset/myself/project_experience_nobg.webp',
+  'assets/asset/myself/avatar_nobg.webp',
+  'assets/asset/myself/honors_banner.webp',
   'assets/AssetManifest.bin.json',
   'assets/FontManifest.json'
 ];
