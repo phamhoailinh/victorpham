@@ -1,8 +1,9 @@
-const CACHE_NAME = 'vp-portfolio-cache-v5';
+const CACHE_NAME = 'vp-portfolio-cache-v11';
 const PRECACHE_ASSETS = [
   './',
   'index.html',
-  'app.bundle.js?v=22',
+  'app.bundle.js?v=30',
+  'Victor_Pham_CV.pdf',
   'favicon.png?v=2',
   'manifest.json',
   'assets/asset/myself/main_01_nobg.webp',
