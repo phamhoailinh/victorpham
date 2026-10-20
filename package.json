@@ -1,0 +1,10 @@
+{
+  "name": "victorpham-portfolio",
+  "version": "1.0.0",
+  "description": "Victor Pham - Senior QA Engineer Portfolio",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "compress": "node -e \"require('fs').writeFileSync('index.html.gz', require('zlib').gzipSync(require('fs').readFileSync('index.html')))\""
+  }
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <base href="/portfolio/">
   <script>
@@ -12,20 +12,34 @@
         base.setAttribute('href', '/');
       }
       if (!base.parentNode) document.head.prepend(base);
+
+      // Clean unregister of legacy Flutter service workers & caches
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          for (var r of regs) r.unregister();
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          for (var n of names) caches.delete(n);
+        });
+      }
     })();
   </script>
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Primary SEO Meta Tags -->
-  <title>Victor Pham | Senior QA Engineer & Test Lead Portfolio</title>
-  <meta name="title" content="Victor Pham | Senior QA Engineer & Test Lead Portfolio">
-  <meta name="description" content="Portfolio of Victor Pham (Pham Hoai Linh) – Senior Quality Assurance Engineer & Test Lead with 7+ years in manual & automation testing across Insurance, Finance, and Automotive (AUTOSAR, ASPICE).">
+  <title>Victor Pham | Senior QA Engineer</title>
+  <meta name="title" content="Victor Pham | Senior QA Engineer">
+  <meta name="description" content="Portfolio of Victor Pham (Pham Hoai Linh) – Senior Quality Assurance Engineer &amp; Test Lead with over 7 years optimizing test strategies, leading QA teams, and architecting scalable automation frameworks.">
   <meta name="keywords" content="Victor Pham, Pham Hoai Linh, Senior QA Engineer, Test Lead, QA Lead, Software Testing, Test Automation, Selenium, Cypress, Appium, Detox, Flutter, JMeter, Postman, AUTOSAR, ASPICE, Cantata, ISTQB, Full-Stack QA">
   <meta name="author" content="Victor Pham (Pham Hoai Linh)">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://victorpham1995.github.io/portfolio/">
 
   <!-- Open Graph / Facebook / LinkedIn / Zalo -->
@@ -33,459 +47,4145 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://victorpham1995.github.io/portfolio/">
   <meta property="og:site_name" content="Victor Pham Portfolio">
-  <meta property="og:title" content="Victor Pham | Senior QA Engineer & Test Lead">
-  <meta property="og:description" content="Senior QA Engineer with 7+ years leading test strategies, multi-platform test automation, and mission-critical verification in Insurance, Finance & Automotive.">
-  <meta property="og:image" content="https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png">
-  <meta property="og:image:secure_url" content="https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Victor Pham - Senior QA Engineer & Test Lead">
+  <meta property="og:title" content="Victor Pham | Senior QA Engineer">
+  <meta property="og:description" content="Senior QA Engineer with 7+ years leading test strategies, multi-platform test automation, and mission-critical verification in Insurance, Finance &amp; Automotive.">
+  <meta property="og:image" content="assets/asset/myself/main_01_preview_dark.png">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://victorpham1995.github.io/portfolio/">
-  <meta name="twitter:title" content="Victor Pham | Senior QA Engineer & Test Lead">
-  <meta name="twitter:description" content="Senior QA Engineer with 7+ years leading test strategies, multi-platform test automation, and mission-critical verification in Insurance, Finance & Automotive.">
-  <meta name="twitter:image" content="https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png">
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://victorpham1995.github.io/portfolio/#person",
-        "name": "Victor Pham",
-        "alternateName": "Pham Hoai Linh",
-        "jobTitle": "Senior Quality Assurance Engineer / Test Lead",
-        "email": "phamhoailinh1995@gmail.com",
-        "telephone": "+84559004399",
-        "url": "https://victorpham1995.github.io/portfolio/",
-        "image": "https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png",
-        "sameAs": [
-          "https://www.linkedin.com/in/victorpham95/"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Ho Chi Minh City",
-          "addressCountry": "Vietnam"
-        },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Ton Duc Thang University"
-        },
-        "worksFor": {
-          "@type": "Organization",
-          "name": "FPT Software"
-        },
-        "knowsAbout": [
-          "Software Quality Assurance",
-          "Test Automation Frameworks",
-          "Test Strategy & Planning",
-          "Selenium WebDriver",
-          "Cypress",
-          "Appium",
-          "Detox",
-          "Flutter Integration Test",
-          "JMeter Performance Testing",
-          "Postman API Testing",
-          "AUTOSAR & ASPICE Compliance",
-          "Cantata Unit & Integration Testing",
-          "ISTQB Foundation",
-          "LOMA 281 Insurance Certification"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://victorpham1995.github.io/portfolio/#website",
-        "url": "https://victorpham1995.github.io/portfolio/",
-        "name": "Victor Pham Portfolio",
-        "description": "Senior QA Engineer & Test Lead Portfolio - Victor Pham (Pham Hoai Linh)",
-        "publisher": {
-          "@id": "https://victorpham1995.github.io/portfolio/#person"
-        }
-      }
-    ]
-  }
-  </script>
+  <meta name="twitter:title" content="Victor Pham | Senior QA Engineer">
+  <meta name="twitter:description" content="Senior QA Engineer with 7+ years leading test strategies, multi-platform test automation, and mission-critical verification in Insurance, Finance &amp; Automotive.">
+  <meta name="twitter:image" content="assets/asset/myself/main_01_preview_dark.png">
 
   <meta name="theme-color" content="#070B17">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), vr=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://fonts.googleapis.com https://fonts.gstatic.com https://www.gstatic.com https://unpkg.com; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' blob: data: https://*.github.io https://fonts.googleapis.com https://fonts.gstatic.com https://www.gstatic.com https://unpkg.com; frame-ancestors 'none'; object-src 'none';">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
 
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Victor Pham QA">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png?v=2">
-  <link rel="icon" type="image/png" href="favicon.png?v=2"/>
-  <link rel="shortcut icon" type="image/png" href="favicon.png?v=2"/>
-  <link rel="manifest" href="manifest.json">
-
-  <!-- Performance Preloads -->
+  <!-- Typography: Google Fonts Outfit & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap">
-  <link rel="preload" href="app.bundle.js" as="script">
-  <link rel="preload" href="assets/asset/myself/main_01_nobg.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap">
 
   <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      background: #070B17;
-      touch-action: pan-y;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior-y: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      -webkit-touch-callout: none;
+    /* ────────────────────────── FLUTTER DESIGN TOKENS ────────────────────────── */
+    :root {
+      --bg: #070B17;
+      --bgElevated: #0D1326;
+      --surface: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --border-subtle: rgba(255, 255, 255, 0.06);
+
+      --textMain: #F1F5FF;
+      --textMuted: #94A3C4;
+      --textFaint: #5B6885;
+
+      --primary: #6C7BFF;   /* Indigo */
+      --secondary: #22D3EE; /* Cyan */
+      --accent: #C084FC;    /* Violet */
+      --success: #34D399;   /* Emerald */
+
+      --brandGradient: linear-gradient(135deg, #6C7BFF 0%, #C084FC 50%, #22D3EE 100%);
+      --brandGradientH: linear-gradient(90deg, #6C7BFF 0%, #C084FC 50%, #22D3EE 100%);
+
+      --maxContent: 1160px;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+      --font-mono: 'Fira Code', monospace;
     }
-    #splash {
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--textMain);
+      font-family: var(--font-body);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--textMain);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ────────────────────── AURORA BACKGROUND & DOT GRID ────────────────────── */
+    .aurora-background {
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      background-color: var(--bg);
+    }
+
+    .aurora-grid {
+      position: absolute;
       inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px);
+      background-size: 32px 32px;
+    }
+
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      will-change: transform;
+      animation: floatOrbs 24s infinite alternate ease-in-out;
+    }
+
+    .aurora-orb-1 {
+      width: 44vw;
+      height: 44vw;
+      top: -10vw;
+      left: 10vw;
+      background: radial-gradient(circle, rgba(108, 123, 255, 0.16) 0%, rgba(108, 123, 255, 0) 70%);
+      animation-duration: 22s;
+    }
+
+    .aurora-orb-2 {
+      width: 38vw;
+      height: 38vw;
+      top: 30vh;
+      right: -5vw;
+      background: radial-gradient(circle, rgba(192, 132, 252, 0.14) 0%, rgba(192, 132, 252, 0) 70%);
+      animation-duration: 26s;
+    }
+
+    .aurora-orb-3 {
+      width: 48vw;
+      height: 48vw;
+      bottom: -15vw;
+      left: 20vw;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, rgba(34, 211, 238, 0) 70%);
+      animation-duration: 28s;
+    }
+
+    @keyframes floatOrbs {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(3vw, 4vh) scale(1.08); }
+      100% { transform: translate(-2vw, -3vh) scale(0.95); }
+    }
+
+    /* ────────────────────── LAYOUT CONTAINER & UTILITIES ────────────────────── */
+    .content-width {
+      width: 100%;
+      max-width: var(--maxContent);
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 640px) {
+      .content-width {
+        padding: 0 20px;
+      }
+    }
+
+    .gradient-text {
+      background: var(--brandGradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    /* ────────────────────────── GLASS CARD COMPONENT ────────────────────────── */
+    .glass-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%), rgba(13, 19, 38, 0.60);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: transform 280ms cubic-bezier(0.2, 0.0, 0.2, 1), box-shadow 280ms cubic-bezier(0.2, 0.0, 0.2, 1), border-color 280ms cubic-bezier(0.2, 0.0, 0.2, 1), background 280ms cubic-bezier(0.2, 0.0, 0.2, 1);
+    }
+
+    .glass-card.hoverable:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px -8px rgba(108, 123, 255, 0.28);
+      border-color: rgba(108, 123, 255, 0.55);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.015) 100%), rgba(13, 19, 38, 0.82);
+    }
+
+    /* ────────────────────────── SKILL CHIP COMPONENT ────────────────────────── */
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #B9C2FF;
+      background: rgba(108, 123, 255, 0.10);
+      border: 1px solid rgba(108, 123, 255, 0.30);
+      transition: all 200ms ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .skill-chip.dense {
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+
+    .skill-chip:hover {
+      background: var(--brandGradient);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(108, 123, 255, 0.40);
+      transform: translateY(-1px);
+    }
+
+    /* ───────────────────────── SECTION HEADER COMPONENT ───────────────────────── */
+    .section-header {
+      margin-bottom: 36px;
+    }
+
+    .section-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-index {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: var(--brandGradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--brandGradient);
+      border-radius: 2px;
+    }
+
+    .section-eyebrow {
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: var(--textMuted);
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--textMain);
+      line-height: 1.15;
+    }
+
+    @media (max-width: 640px) {
+      .section-header {
+        margin-bottom: 24px;
+      }
+      .section-title {
+        font-size: 30px;
+      }
+    }
+
+    /* ────────────────────────── ICON BADGE COMPONENT ────────────────────────── */
+    .icon-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #070B17;
-      z-index: 999999;
-      transition: opacity .35s ease, visibility .35s ease;
+      background: linear-gradient(135deg, rgba(108, 123, 255, 0.25), rgba(34, 211, 238, 0.15));
+      border: 1px solid rgba(108, 123, 255, 0.35);
+      color: var(--secondary);
+      flex-shrink: 0;
     }
-    .splash-card {
+
+    .icon-badge svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .icon-badge.large {
+      width: 64px;
+      height: 64px;
+      border-radius: 19px;
+    }
+
+    .icon-badge.large svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (max-width: 640px) {
+      .icon-badge.large {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+      }
+      .icon-badge.large svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    /* ──────────────────────── GRADIENT BUTTON COMPONENT ──────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 600;
+      color: #FFFFFF;
+      cursor: pointer;
+      border: none;
+      transition: all 220ms ease-out;
+      text-decoration: none;
+      position: relative;
+      user-select: none;
+    }
+
+    .btn.compact {
+      padding: 10px 18px;
+      font-size: 14px;
+    }
+
+    .btn.solid {
+      background: var(--brandGradient);
+      box-shadow: 0 8px 18px rgba(108, 123, 255, 0.30);
+    }
+
+    .btn.solid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(108, 123, 255, 0.55);
+    }
+
+    .btn.outlined {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: #FFFFFF;
+    }
+
+    .btn.outlined:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(108, 123, 255, 0.70);
+    }
+
+    .btn svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+      transition: transform 220ms ease;
+    }
+
+    .btn:hover svg {
+      transform: translateY(-1px) rotate(4deg);
+    }
+
+    /* ──────────────────────────── TOP NAVIGATION BAR ──────────────────────────── */
+    .top-nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      z-index: 1000;
+      transition: background-color 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease;
+    }
+
+    .top-nav-bar.scrolled {
+      background-color: rgba(7, 11, 23, 0.75);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-container {
+      max-width: var(--maxContent);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 640px) {
+      .nav-container {
+        padding: 0 20px;
+      }
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .nav-logo-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: var(--brandGradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-family: var(--font-heading);
+    }
+
+    .nav-logo-text {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--textMain);
+      letter-spacing: -0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-link {
+      padding: 8px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--textMuted);
+      cursor: pointer;
+      position: relative;
+      transition: color 200ms ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--textMain);
+    }
+
+    .nav-link-indicator {
+      margin-top: 6px;
+      height: 2px;
+      width: 0;
+      background: var(--brandGradient);
+      border-radius: 2px;
+      transition: width 250ms ease;
+    }
+
+    .nav-link.active .nav-link-indicator {
+      width: 20px;
+    }
+
+    .nav-link:hover:not(.active) .nav-link-indicator {
+      width: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 16px;
+    }
+
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--textMain);
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .nav-menu-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links, .nav-actions {
+        display: none;
+      }
+      .nav-menu-btn {
+        display: block;
+      }
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.70);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100vh;
+      background: var(--bgElevated);
+      border-left: 1px solid var(--border);
+      z-index: 2001;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: right 300ms cubic-bezier(0.2, 0.0, 0.2, 1);
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer-header {
+      margin-bottom: 32px;
+    }
+
+    .drawer-title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .drawer-subtitle {
+      font-size: 14px;
+      color: var(--textMuted);
+      margin-top: 4px;
+    }
+
+    .drawer-items {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--textMuted);
+      padding: 8px 0;
+      cursor: pointer;
+      transition: color 200ms ease;
+    }
+
+    .drawer-item.active, .drawer-item:hover {
+      color: var(--textMain);
+    }
+
+    .drawer-index {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--textFaint);
+    }
+
+    .drawer-item.active .drawer-index {
+      color: var(--secondary);
+    }
+
+    .drawer-footer {
+      margin-top: auto;
+    }
+
+    /* ──────────────────────────── HERO SECTION ──────────────────────────── */
+    .hero-section {
+      min-height: calc(100vh - 72px);
+      padding: 48px 0 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    @media (max-width: 640px) {
+      .hero-section {
+        padding: 24px 0 20px;
+      }
+    }
+
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-intro {
+      flex: 5;
+    }
+
+    .hero-visual {
+      flex: 6;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-layout {
+        flex-direction: column;
+        gap: 36px;
+      }
+      .hero-intro, .hero-visual {
+        width: 100%;
+      }
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px 7px 12px;
+      border-radius: 999px;
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.30);
+      margin-bottom: 24px;
+    }
+
+    .pulse-dot-wrapper {
+      position: relative;
+      width: 14px;
+      height: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pulse-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba(52, 211, 153, 0.40);
+      animation: pulseRingAnim 1.6s infinite ease-out;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes pulseRingAnim {
+      0% { transform: scale(0.6); opacity: 0.8; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .status-text {
+      color: var(--success);
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    /* Hero Headings */
+    .hero-greeting {
+      font-family: var(--font-heading);
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--textMain);
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .hero-name {
+      font-family: var(--font-heading);
+      font-size: 66px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin-top: 4px;
+    }
+
+    .hero-realname {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--textMuted);
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .hero-greeting { font-size: 36px; }
+      .hero-name { font-size: 42px; }
+      .hero-realname { font-size: 15px; }
+    }
+
+    /* Rotating Role */
+    .rotating-role-row {
+      display: flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 21px;
+      margin-bottom: 20px;
+      min-height: 32px;
+    }
+
+    .role-chevron {
+      color: var(--secondary);
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .role-text {
+      color: var(--textMain);
+      font-weight: 600;
+    }
+
+    .role-cursor {
+      display: inline-block;
+      width: 10px;
+      height: 24px;
+      background-color: var(--secondary);
+      margin-left: 4px;
+      animation: cursorBlink 530ms infinite;
+    }
+
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    @media (max-width: 640px) {
+      .rotating-role-row { font-size: 17px; }
+      .role-cursor { height: 19px; }
+    }
+
+    .hero-summary {
+      max-width: 540px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--textMuted);
+      margin-bottom: 32px;
+    }
+
+    /* Hero Action Buttons */
+    .hero-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 490px) {
+      .hero-btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-btn-split {
+        display: flex;
+        gap: 10px;
+      }
+      .hero-btn-split .btn {
+        flex: 1;
+        padding: 13px 14px;
+      }
+      .hero-btn-row .btn.full-width {
+        width: 100%;
+      }
+    }
+
+    /* Hero Metadata Chips */
+    .hero-meta-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      color: var(--textMuted);
+    }
+
+    .hero-meta-item svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--secondary);
+    }
+
+    /* ──────────────────── HERO PORTRAIT SHOWCASE (DESKTOP) ──────────────────── */
+    .hero-portrait-stage {
+      position: relative;
+      width: 100%;
+      height: 540px;
+    }
+
+    .hero-ambient-aura {
+      position: absolute;
+      right: 0;
+      top: 20px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(49, 46, 129, 0.20) 0%, rgba(49, 46, 129, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-orbital-ring {
+      position: absolute;
+      right: 15px;
+      top: 30px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    .hero-portrait-photo-wrap {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 330px;
+      height: 490px;
+      animation: floatPhoto 3800ms ease-in-out infinite alternate;
+    }
+
+    .hero-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 84%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 0%, black 84%, transparent 100%);
+    }
+
+    @keyframes floatPhoto {
+      0% { transform: translateY(-7px); }
+      100% { transform: translateY(7px); }
+    }
+
+    /* Floating Badges on Portrait */
+    .floating-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      background: rgba(13, 19, 38, 0.94);
+      border-radius: 14px;
+      border: 1px solid rgba(108, 123, 255, 0.40);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.50);
+      font-weight: 700;
+      font-size: 12.5px;
+      color: var(--textMain);
+      user-select: none;
+      backdrop-filter: blur(12px);
+    }
+
+    .floating-hero-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: url(#brandGradientSvg);
+    }
+
+    .badge-platinum {
+      position: absolute;
+      top: 18px;
+      right: -8px;
+      z-index: 4;
+      animation: floatBadgePlatinum 3800ms ease-in-out infinite alternate;
+    }
+
+    @keyframes floatBadgePlatinum {
+      0% { transform: translateY(6px); }
+      100% { transform: translateY(-6px); }
+    }
+
+    .badge-qa {
+      position: absolute;
+      top: 130px;
+      left: 55px;
+      z-index: 4;
+      animation: floatBadgeQa 3800ms ease-in-out infinite alternate;
+    }
+
+    @keyframes floatBadgeQa {
+      0% { transform: translateY(-5px); }
+      100% { transform: translateY(5px); }
+    }
+
+    /* ────────────── VERSION 1 QUALITY SUITE RUNNER (_TestRunnerCard) ────────────── */
+    .test-runner-card-wrap {
+      position: absolute;
+      left: 0;
+      bottom: 32px;
+      width: 295px;
+      z-index: 5;
+      animation: floatTerminal 4600ms ease-in-out infinite alternate;
+    }
+
+    @keyframes floatTerminal {
+      0% { transform: translateY(6px); }
+      100% { transform: translateY(-6px); }
+    }
+
+    .test-runner-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)), rgba(13, 19, 38, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 50px -12px rgba(108, 123, 255, 0.28), 0 20px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .test-runner-chrome {
+      display: flex;
+      align-items: center;
+      padding: 7.5px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.20);
+    }
+
+    .chrome-dots {
+      display: flex;
+      gap: 5px;
+      margin-right: 8px;
+    }
+
+    .chrome-dot {
+      width: 8.5px;
+      height: 8.5px;
+      border-radius: 50%;
+    }
+
+    .chrome-dot.red { background-color: #FF5F57; }
+    .chrome-dot.yellow { background-color: #FEBC2E; }
+    .chrome-dot.green { background-color: #28C840; }
+
+    .chrome-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--textFaint);
+    }
+
+    .test-runner-body {
+      padding: 10px 14px 12px;
+    }
+
+    .test-line {
+      display: flex;
+      align-items: center;
+      padding: 1.8px 0;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      opacity: 0.12;
+      transition: opacity 240ms ease;
+    }
+
+    .test-line.shown {
+      opacity: 1.0;
+    }
+
+    .test-line-icon {
+      width: 13.5px;
+      height: 13.5px;
+      margin-right: 7px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .test-line-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--textFaint);
+    }
+
+    .test-line.shown .test-line-icon svg {
+      fill: var(--success);
+    }
+
+    .test-line-name {
+      color: var(--textMain);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .test-line-desc {
+      font-size: 10px;
+      color: var(--textFaint);
+      margin-left: 6px;
+    }
+
+    .test-runner-progress-bar {
+      margin-top: 10px;
+      height: 4.5px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 99px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .test-runner-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--brandGradientH);
+      border-radius: 99px;
+      transition: width 360ms ease;
+    }
+
+    .test-runner-status {
+      height: 18px;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--textMuted);
+    }
+
+    .test-runner-status.done {
+      color: var(--success);
+    }
+
+    /* Mobile & Tablet Hero Presentation (No Overlap) */
+    @media (max-width: 1024px) {
+      .hero-portrait-stage {
+        position: relative;
+        width: 100%;
+        max-width: 440px;
+        height: auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 16px auto 0;
+      }
+
+      .hero-portrait-photo-wrap {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 290px;
+        height: 380px;
+        margin: 0 auto;
+        animation: floatPhoto 3800ms ease-in-out infinite alternate;
+        z-index: 2;
+      }
+
+      .hero-ambient-aura {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        left: 50%;
+        top: 190px;
+        transform: translate(-50%, -50%);
+        right: auto;
+        z-index: 1;
+      }
+
+      .hero-orbital-ring {
+        position: absolute;
+        width: 310px;
+        height: 310px;
+        left: 50%;
+        top: 190px;
+        transform: translate(-50%, -50%);
+        right: auto;
+        z-index: 1;
+      }
+
+      .badge-platinum {
+        position: absolute;
+        top: 40px;
+        right: 12px;
+        z-index: 4;
+        animation: none;
+      }
+
+      .badge-qa {
+        position: absolute;
+        top: 140px;
+        left: 12px;
+        z-index: 4;
+        animation: none;
+      }
+
+      .test-runner-card-wrap {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 380px;
+        margin-top: 24px;
+        animation: none;
+        z-index: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-portrait-stage {
+        max-width: 100%;
+      }
+
+      .hero-portrait-photo-wrap {
+        width: 260px;
+        height: 340px;
+      }
+
+      .hero-ambient-aura, .hero-orbital-ring {
+        width: 270px;
+        height: 270px;
+        top: 170px;
+      }
+
+      .badge-platinum {
+        top: 30px;
+        right: 4px;
+        font-size: 11.5px;
+        padding: 7px 11px;
+      }
+
+      .badge-qa {
+        top: 120px;
+        left: 4px;
+        font-size: 11.5px;
+        padding: 7px 11px;
+      }
+
+      .test-runner-card-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 18px;
+      }
+    }
+
+    /* ────────────────────────── STATS ROW COMPONENT ────────────────────────── */
+    .stats-row-wrap {
+      margin-top: 44px;
+      width: 100%;
+    }
+
+    .stats-row-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(13, 19, 38, 0.60);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+    }
+
+    .stat-col {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 24px;
     }
-    .splash-logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #6C7BFF, #A855F7 50%, #22D3EE);
+
+    .stat-divider {
+      width: 1px;
+      height: 44px;
+      background-color: var(--border);
+      margin: 0 16px;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--textMain);
+      margin-bottom: 2px;
+    }
+
+    .stat-subtitle {
+      font-size: 11.5px;
+      color: var(--textFaint);
+    }
+
+    @media (max-width: 680px) {
+      .stats-row-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+      .stat-divider {
+        display: none;
+      }
+      .stat-value {
+        font-size: 32px;
+      }
+    }
+
+    /* ──────────────────────── SECTION 01: ABOUT ME ──────────────────────── */
+    .section-about {
+      padding: 64px 0;
+    }
+
+    .about-layout {
+      display: flex;
+      gap: 44px;
+      align-items: flex-start;
+    }
+
+    .about-left {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-right {
+      flex: 6;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .about-layout {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .about-left, .about-right {
+        width: 100%;
+      }
+    }
+
+    /* Profile Photo Card */
+    .profile-photo-card {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 320px;
+    }
+
+    .profile-photo-glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(108, 123, 255, 0.35) 0%, rgba(34, 211, 238, 0.15) 50%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .profile-photo-img {
+      height: 320px;
+      object-fit: contain;
+      object-position: bottom center;
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-photo-badge {
+      position: absolute;
+      bottom: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 16px;
+      background: rgba(13, 19, 38, 0.90);
+      border: 1px solid rgba(108, 123, 255, 0.40);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.30);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--textMain);
+      backdrop-filter: blur(12px);
+    }
+
+    .profile-photo-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--secondary);
+    }
+
+    /* Quote Card */
+    .quote-card {
+      padding: 20px;
+      border-radius: 16px;
+      border-left: 3px solid rgba(34, 211, 238, 0.80);
+      background: rgba(34, 211, 238, 0.05);
+      font-size: 15.5px;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--textMain);
+    }
+
+    .about-summary {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--textMuted);
+      margin-bottom: 8px;
+    }
+
+    /* Tag Card */
+    .tag-card {
+      padding: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .tag-card-content {
+      flex: 1;
+    }
+
+    .tag-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--textMain);
+      margin-bottom: 12px;
+    }
+
+    .tag-card-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ────────────────────── SECTION 02: SKILLS & SERVICES ────────────────────── */
+    .section-skills {
+      padding: 64px 0;
+    }
+
+    .skills-top-layout {
+      display: flex;
+      gap: 52px;
+      align-items: flex-start;
+    }
+
+    .skills-intro-col {
+      flex: 5;
+    }
+
+    .skills-cards-col {
+      flex: 6;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    @media (max-width: 1024px) {
+      .skills-top-layout {
+        flex-direction: column;
+        gap: 36px;
+      }
+      .skills-intro-col, .skills-cards-col {
+        width: 100%;
+      }
+    }
+
+    .skills-intro-p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--textMuted);
+      margin-bottom: 28px;
+    }
+
+    .skills-toolkit-title {
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--textFaint);
+      margin-top: 36px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .skills-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Service Cards */
+    .service-card {
+      padding: 24px;
+      border-radius: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .service-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Outfit', 'Inter', sans-serif;
-      font-weight: 900;
-      font-size: 26px;
-      letter-spacing: -1px;
-      box-shadow: 0 12px 32px rgba(108,123,255,0.4);
-      margin-bottom: 20px;
-      animation: pulseGlow 2s ease-in-out infinite;
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(108, 123, 255, 0.35);
     }
-    @keyframes pulseGlow {
-      0%, 100% { transform: scale(1); box-shadow: 0 12px 32px rgba(108,123,255,0.35); }
-      50% { transform: scale(1.05); box-shadow: 0 16px 40px rgba(108,123,255,0.6); }
+
+    .service-card-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: #FFFFFF;
     }
-    .splash-title {
-      color: #F1F5FF;
-      font-family: -apple-system, BlinkMacSystemFont, 'Outfit', sans-serif;
-      font-size: 22px;
+
+    .service-card-title {
+      font-family: var(--font-heading);
+      font-size: 18.5px;
       font-weight: 700;
-      letter-spacing: -0.5px;
+      color: var(--textMain);
+      margin-bottom: 8px;
+    }
+
+    .service-card-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--textMuted);
+    }
+
+    /* ────────── COMMITMENT SECTION (_CommitmentSection) ────────── */
+    .commitment-section {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      gap: 52px;
+    }
+
+    .commitment-text-col {
+      flex: 6;
+    }
+
+    .commitment-image-col {
+      flex: 5;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .commitment-section {
+        flex-direction: column;
+        gap: 36px;
+      }
+      .commitment-text-col, .commitment-image-col {
+        width: 100%;
+      }
+    }
+
+    .commitment-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 14px;
+    }
+
+    .commitment-eyebrow-row svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--secondary);
+    }
+
+    .commitment-title {
+      font-family: var(--font-heading);
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .commitment-p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--textMuted);
+      margin-bottom: 28px;
+    }
+
+    .commitment-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .commitment-number-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--brandGradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .commitment-row-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--textMain);
+      margin-bottom: 4px;
+    }
+
+    .commitment-row-sub {
+      font-size: 13.5px;
+      color: var(--textMuted);
+      line-height: 1.5;
+    }
+
+    /* Commitment Image Showcase */
+    .commitment-showcase-stage {
+      position: relative;
+      width: 320px;
+      height: 410px;
+    }
+
+    .commitment-aura {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.25) 0%, rgba(108, 123, 255, 0.15) 50%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .commitment-photo-img {
+      width: 320px;
+      height: 410px;
+      object-fit: contain;
+      object-position: bottom center;
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Option 2 Badges for Commitment */
+    .floating-skill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 16px;
+      background: rgba(13, 19, 38, 0.94);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+      z-index: 3;
+      user-select: none;
+    }
+
+    .floating-skill-badge-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .floating-skill-badge-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .floating-skill-badge-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--textMain);
+      letter-spacing: -0.1px;
+    }
+
+    .floating-skill-badge-sub {
+      font-size: 10.5px;
+      font-weight: 600;
+      margin-top: 1.5px;
+    }
+
+    .badge-commitment-left {
+      position: absolute;
+      top: 150px;
+      left: -32px;
+      border: 1.2px solid rgba(34, 211, 238, 0.45);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55), 0 4px 16px -2px rgba(34, 211, 238, 0.20);
+      animation: floatBadgeCommitmentLeft 3600ms ease-in-out infinite alternate;
+    }
+
+    .badge-commitment-left .floating-skill-badge-icon {
+      background: rgba(34, 211, 238, 0.15);
+      border: 1px solid rgba(34, 211, 238, 0.35);
+    }
+    .badge-commitment-left .floating-skill-badge-icon svg {
+      fill: var(--secondary);
+    }
+    .badge-commitment-left .floating-skill-badge-sub {
+      color: var(--secondary);
+    }
+
+    @keyframes floatBadgeCommitmentLeft {
+      0% { transform: translateY(-5px); }
+      100% { transform: translateY(5px); }
+    }
+
+    .badge-commitment-right {
+      position: absolute;
+      bottom: 24px;
+      right: -32px;
+      border: 1.2px solid rgba(52, 211, 153, 0.45);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55), 0 4px 16px -2px rgba(52, 211, 153, 0.20);
+      animation: floatBadgeCommitmentRight 3600ms ease-in-out infinite alternate;
+    }
+
+    .badge-commitment-right .floating-skill-badge-icon {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+    .badge-commitment-right .floating-skill-badge-icon svg {
+      fill: var(--success);
+    }
+    .badge-commitment-right .floating-skill-badge-sub {
+      color: var(--success);
+    }
+
+    @keyframes floatBadgeCommitmentRight {
+      0% { transform: translateY(5px); }
+      100% { transform: translateY(-5px); }
+    }
+
+    @media (max-width: 640px) {
+      .badge-commitment-left { left: -10px; }
+      .badge-commitment-right { right: -10px; }
+    }
+
+    /* ────────────────────── SECTION 03: EXPERIENCE ────────────────────── */
+    .section-experience {
+      padding: 64px 0;
+    }
+
+    .timeline-container {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .timeline-entry {
+      position: relative;
+      display: flex;
+      margin-bottom: 32px;
+    }
+
+    .timeline-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-rail {
+      width: 48px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+      .timeline-rail {
+        width: 28px;
+      }
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: -32px;
+      left: calc(50% - 1px);
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(157, 126, 253, 0.85) 0%, rgba(192, 132, 252, 0.85) 50%, rgba(112, 172, 245, 0.85) 100%);
+      box-shadow: 0 0 8px rgba(108, 123, 255, 0.35);
+      z-index: 1;
+      transition: all 250ms ease;
+    }
+
+    .timeline-entry:first-child .timeline-line {
+      top: 35px;
+      bottom: -32px;
+      background: linear-gradient(to bottom, rgba(108, 123, 255, 0.90) 0%, rgba(157, 126, 253, 0.85) 100%);
+    }
+
+    .timeline-entry:last-child .timeline-line {
+      top: 0;
+      height: 35px;
+      bottom: auto;
+      background: linear-gradient(to bottom, rgba(112, 172, 245, 0.85) 0%, rgba(34, 211, 238, 0.90) 100%);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 26px;
+      left: calc(50% - 9px);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 0 12px rgba(108, 123, 255, 0.50);
+      transition: all 250ms ease;
+    }
+
+    .timeline-entry:first-child .timeline-dot {
+      box-shadow: 0 0 16px rgba(108, 123, 255, 0.75);
+      border-color: #8B99FF;
+    }
+
+    .timeline-entry:hover .timeline-dot {
+      border-color: var(--secondary);
+      box-shadow: 0 0 18px rgba(34, 211, 238, 0.80);
+      transform: scale(1.15);
+    }
+
+    .timeline-entry:hover .timeline-line {
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.60);
+    }
+
+    .timeline-dot-inner {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brandGradient);
+    }
+
+    .timeline-card-wrap {
+      flex: 1;
+      margin-left: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .timeline-card-wrap {
+        margin-left: 8px;
+      }
+    }
+
+    .job-card {
+      padding: 30px;
+    }
+
+    @media (max-width: 640px) {
+      .job-card {
+        padding: 20px;
+      }
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 640px) {
+      .job-header {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    .job-role {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--textMain);
+      line-height: 1.2;
+    }
+
+    @media (max-width: 640px) {
+      .job-role { font-size: 20px; }
+    }
+
+    .job-company {
+      font-size: 15.5px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .job-period-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--textMuted);
+      white-space: nowrap;
+    }
+
+    .job-period-pill svg {
+      width: 13px;
+      height: 13px;
+      fill: var(--textMuted);
+    }
+
+    .job-project-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .job-project-row svg {
+      width: 17px;
+      height: 17px;
+      fill: var(--secondary);
+    }
+
+    .job-project-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--textMain);
+    }
+
+    .job-market-tag {
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: rgba(192, 132, 252, 0.12);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .job-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--textMuted);
+    }
+
+    .job-highlight svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .job-tools-divider {
+      height: 1px;
+      background-color: var(--border);
+      margin: 16px 0;
+    }
+
+    .job-tools-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ───────────────────── SECTION 04: EDUCATION & HONORS ───────────────────── */
+    .section-education {
+      padding: 64px 0;
+    }
+
+    .education-card {
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 40px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 640px) {
+      .education-card {
+        padding: 22px;
+        margin-bottom: 24px;
+      }
+    }
+
+    .education-degree {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--textMain);
       margin-bottom: 6px;
     }
-    .splash-sub {
-      color: #94A3C4;
-      font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+
+    @media (max-width: 640px) {
+      .education-degree { font-size: 18px; }
+    }
+
+    .education-school {
+      font-size: 15.5px;
+      font-weight: 600;
+    }
+
+    /* Honor Groups */
+    .honor-group {
+      margin-bottom: 32px;
+    }
+
+    .honor-group-title {
       font-size: 13px;
-      font-weight: 500;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      color: var(--textFaint);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .honor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .honor-card {
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .honor-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--textMain);
+      margin-bottom: 4px;
+    }
+
+    .honor-card-detail {
+      font-size: 14px;
+      color: var(--textMuted);
+    }
+
+    /* ────────────────────── AWARD GALLERY COVERFLOW ────────────────────── */
+    .award-gallery-section {
+      margin-top: 36px;
+    }
+
+    .award-gallery-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      color: var(--textFaint);
+      text-transform: uppercase;
+    }
+
+    .award-gallery-header svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--secondary);
+    }
+
+    .coverflow-stage-wrap {
+      position: relative;
+      width: 100%;
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .coverflow-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coverflow-card {
+      position: absolute;
+      width: 440px;
+      height: 284px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.50);
+      cursor: pointer;
+      transition: transform 450ms cubic-bezier(0.2, 0.0, 0.2, 1), opacity 450ms cubic-bezier(0.2, 0.0, 0.2, 1), border-color 300ms ease, box-shadow 300ms ease;
+    }
+
+    @media (max-width: 1024px) {
+      .coverflow-card {
+        width: 340px;
+        height: 220px;
+      }
+      .coverflow-stage-wrap {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .coverflow-card {
+        width: 250px;
+        height: 162px;
+      }
+      .coverflow-stage-wrap {
+        height: 200px;
+      }
+    }
+
+    .coverflow-card.is-center {
+      border: 1.8px solid rgba(34, 211, 238, 0.90);
+      box-shadow: 0 12px 32px rgba(34, 211, 238, 0.32), 0 8px 22px rgba(0, 0, 0, 0.65);
+      z-index: 10;
+    }
+
+    .coverflow-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .coverflow-year-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 3.5px 8px;
+      border-radius: 6px;
+      background: rgba(7, 11, 23, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--textMain);
+    }
+
+    .coverflow-card.is-center .coverflow-year-badge {
+      border-color: rgba(34, 211, 238, 0.80);
+      color: var(--secondary);
+    }
+
+    .coverflow-zoom-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(7, 11, 23, 0.75);
+      border: 1px solid rgba(34, 211, 238, 0.50);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coverflow-card.is-center .coverflow-zoom-icon {
+      display: flex;
+    }
+
+    .coverflow-zoom-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: #FFFFFF;
+    }
+
+    /* Active Caption Details */
+    .award-caption-box {
+      margin-top: 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .award-caption-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .award-caption-year {
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(34, 211, 238, 0.15);
+      border: 1px solid rgba(34, 211, 238, 0.60);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .award-caption-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--textMain);
+      letter-spacing: 0.3px;
+    }
+
+    .award-caption-subtitle {
+      font-size: 13px;
+      color: var(--textMuted);
+    }
+
+    /* Coverflow Pagination Dots */
+    .coverflow-dots-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .coverflow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+      transition: all 300ms ease;
+    }
+
+    .coverflow-dot.active {
+      width: 26px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: 0 2px 10px rgba(108, 123, 255, 0.55);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 250ms ease;
+    }
+
+    .lightbox-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-modal-card {
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+      border-radius: 20px;
+    }
+
+    .lightbox-modal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .lightbox-year-badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--brandGradient);
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .lightbox-title-wrap {
+      flex: 1;
+    }
+
+    .lightbox-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--textMain);
+    }
+
+    .lightbox-subtitle {
+      font-size: 13px;
+      color: var(--textMuted);
+    }
+
+    .lightbox-close-btn {
+      background: none;
+      border: none;
+      color: var(--textMuted);
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-close-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .lightbox-close-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .lightbox-modal-img-wrap {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-modal-img-wrap img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    /* ────────────────────────── SECTION 05: CONTACT ────────────────────────── */
+    .section-contact {
+      padding: 64px 0 80px;
+    }
+
+    .contact-container-card {
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(108, 123, 255, 0.22) 0%, rgba(192, 132, 252, 0.12) 50%, rgba(34, 211, 238, 0.18) 100%), rgba(13, 19, 38, 0.70);
+      border: 1px solid rgba(108, 123, 255, 0.35);
+      padding: 48px 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(16px);
+    }
+
+    @media (max-width: 640px) {
+      .contact-container-card {
+        padding: 28px 20px;
+      }
+    }
+
+    .contact-header-centered {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .contact-eyebrow {
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: var(--textMuted);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .contact-title {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    @media (max-width: 640px) {
+      .contact-title { font-size: 30px; }
+    }
+
+    .contact-lead {
+      max-width: 560px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--textMuted);
+      margin-bottom: 32px;
+    }
+
+    .contact-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .contact-tiles-grid {
+      width: 100%;
+      max-width: 720px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 580px) {
+      .contact-tiles-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    .contact-tile {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(13, 19, 38, 0.55);
+      border: 1.2px solid var(--border);
+      text-align: left;
+      cursor: pointer;
+      transition: all 200ms ease;
+      text-decoration: none;
+    }
+
+    .contact-tile:hover {
+      background: rgba(13, 19, 38, 0.85);
+      transform: translateY(-2px);
+    }
+
+    .contact-tile.email:hover {
+      border-color: rgba(108, 123, 255, 0.65);
+      box-shadow: 0 4px 18px rgba(108, 123, 255, 0.22);
+    }
+
+    .contact-tile.phone:hover {
+      border-color: rgba(34, 211, 238, 0.65);
+      box-shadow: 0 4px 18px rgba(34, 211, 238, 0.22);
+    }
+
+    .contact-tile.linkedin:hover {
+      border-color: rgba(56, 189, 248, 0.65);
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.22);
+    }
+
+    .contact-tile-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      flex-shrink: 0;
+    }
+
+    .contact-tile-icon-box svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-tile-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .contact-tile-type {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      color: var(--textMuted);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .contact-tile-val {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--textMain);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contact-tile-arrow svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--textFaint);
+      transition: all 200ms ease;
+    }
+
+    .contact-tile:hover .contact-tile-arrow svg {
+      fill: currentColor;
+      transform: translate(2px, -2px);
+    }
+
+    .active-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.28);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--success);
+    }
+
+    .active-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 4px rgba(52, 211, 153, 0.60);
+    }
+
+    /* ────────────────────────── BACK TO TOP BUTTON ────────────────────────── */
+    .back-to-top-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(13, 19, 38, 0.82);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--textMain);
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0;
+      transform: scale(0);
+      pointer-events: none;
+      transition: all 260ms cubic-bezier(0.2, 0.0, 0.2, 1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .back-to-top-btn:hover {
+      background: var(--brandGradient);
+      border-color: transparent;
+      box-shadow: 0 6px 20px rgba(108, 123, 255, 0.50);
+      transform: scale(1.08) translateY(-2px);
+    }
+
+    .back-to-top-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .site-footer-spacer {
+      height: 40px;
+    }
+
+    /* ────────────────────── CLIENT SECURITY & ANTI-INSPECTION HUD ────────────────────── */
+    .security-toast {
+      position: fixed;
+      top: 84px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-24px);
+      background: #0D1326;
+      border: 1.5px solid #22D3EE;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.90), 0 0 25px rgba(34, 211, 238, 0.50);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 999px;
+      padding: 12px 26px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #FFFFFF;
+      font-size: 13.5px;
+      font-weight: 600;
+      z-index: 999999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .security-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .security-toast-icon {
+      width: 18px;
+      height: 18px;
+      fill: #22D3EE;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.8));
+    }
+
+    .security-shield-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 11, 23, 0.92);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      z-index: 999998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .security-shield-box {
+      max-width: 480px;
+      width: 100%;
+      background: rgba(13, 19, 38, 0.95);
+      border: 1px solid rgba(108, 123, 255, 0.50);
+      border-radius: 20px;
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.80), 0 0 35px rgba(108, 123, 255, 0.30);
+    }
+
+    .security-shield-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(108, 123, 255, 0.20), rgba(34, 211, 238, 0.20));
+      border: 1px solid rgba(34, 211, 238, 0.50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.40);
+    }
+
+    .security-shield-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: #22D3EE;
+    }
+
+    .security-shield-box h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 12px;
+    }
+
+    .security-shield-box p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #94A3B8;
       margin-bottom: 24px;
     }
-    .splash-bar {
-      width: 140px;
-      height: 3px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 3px;
-      overflow: hidden;
-      position: relative;
+
+    .security-shield-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(34, 211, 238, 0.10);
+      border: 1px solid rgba(34, 211, 238, 0.30);
+      border-radius: 999px;
+      font-size: 12px;
+      color: #22D3EE;
+      font-family: monospace;
+      letter-spacing: 0.5px;
     }
-    .splash-progress {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 40%;
-      background: linear-gradient(90deg, #6C7BFF, #22D3EE);
-      border-radius: 3px;
-      animation: loadSlide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-    @keyframes loadSlide {
-      0% { left: -40%; width: 40%; }
-      50% { left: 30%; width: 50%; }
-      100% { left: 100%; width: 30%; }
-    }
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+
+    /* Prevent drag & unauthorized image extraction */
+    img {
+      -webkit-user-drag: none;
+      user-select: none;
+      -webkit-user-select: none;
     }
   </style>
-
-  <script>
-    (function () {
-      'use strict';
-
-      // 1. Prevent iframe clickjacking / embedding
-      if (window.top !== window.self) {
-        try { window.top.location = window.self.location; }
-        catch (e) { window.location = 'about:blank'; }
-      }
-
-      // 2. Hide error stack traces
-      try { Error.stackTraceLimit = 0; } catch (e) {}
-
-      // 3. Block Context Menu & Dragging
-      document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-        return false;
-      }, { capture: true });
-
-      document.addEventListener('dragstart', function (e) {
-        e.preventDefault();
-        return false;
-      }, { capture: true });
-
-      // 4. Block Developer Tools Shortcuts
-      document.addEventListener('keydown', function (e) {
-        var k = e.key || e.keyCode;
-        var ctrl = e.ctrlKey || e.metaKey;
-        var shift = e.shiftKey;
-        if (
-          k === 'F12' || k === 123 ||
-          (ctrl && shift && (k === 'I' || k === 'i' || k === 'J' || k === 'j' || k === 'C' || k === 'c' || k === 'K' || k === 'k' || k === 73 || k === 74 || k === 67 || k === 75)) ||
-          (ctrl && (k === 'U' || k === 'u' || k === 'S' || k === 's' || k === 85 || k === 83))
-        ) {
-          e.preventDefault();
-          e.stopPropagation();
-          return false;
-        }
-      }, { capture: true });
-
-      // 5. Framework Camouflage: Sanitize DOM & Mask Global Variables
-      try {
-        var origSetText = Object.getOwnPropertyDescriptor(Node.prototype, 'textContent').set;
-        Object.defineProperty(HTMLParagraphElement.prototype, 'textContent', {
-          set: function (val) {
-            if (typeof val === 'string' && val.indexOf('flutter') !== -1) {
-              val = val.replace(/flutter\s*/gi, '');
-            }
-            return origSetText.call(this, val);
-          },
-          configurable: true
-        });
-
-        var domCleaner = new MutationObserver(function (mutations) {
-          for (var i = 0; i < mutations.length; i++) {
-            var added = mutations[i].addedNodes;
-            for (var j = 0; j < added.length; j++) {
-              var node = added[j];
-              if (node.nodeType === 1) {
-                if (node.tagName === 'P' && node.textContent && node.textContent.indexOf('flutter') !== -1) {
-                  node.textContent = node.textContent.replace(/flutter\s*/gi, '');
-                }
-                if (node.tagName === 'META' && node.getAttribute('name') === 'generator') {
-                  node.setAttribute('content', 'WebApp');
-                }
-              }
-            }
-          }
-        });
-        domCleaner.observe(document.documentElement, { childList: true, subtree: true });
-
-        ['flutter', '_flutter', '$dart_loader', 'dart2js', '__DART_DEVOPS__'].forEach(function (prop) {
-          try {
-            Object.defineProperty(window, prop, {
-              get: function () { return undefined; },
-              set: function () {},
-              configurable: false
-            });
-          } catch (e) {}
-        });
-      } catch (e) {}
-
-      // 6. DevTools Active Shield & Debugger Trap (Docked & Undocked)
-      var isDevToolsOpen = false;
-      var shield = null;
-
-      function createShield() {
-        if (!shield && document.body) {
-          shield = document.createElement('div');
-          shield.id = 'guard-shield';
-          shield.style.cssText = 'position:fixed;inset:0;background:#070B17;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:-apple-system,BlinkMacSystemFont,Inter,sans-serif;text-align:center;padding:24px;box-sizing:border-box;';
-          shield.innerHTML = '<div style="width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><h2 style="font-size:22px;margin:0 0 10px;font-weight:700;">Security Restricted</h2><p style="color:#94A3B8;font-size:14px;max-width:440px;line-height:1.6;margin:0 0 16px;">Môi trường kiểm tra mã nguồn (DevTools) bị hạn chế.<br><strong style="color:#E2E8F0;">Vui lòng đóng cửa sổ DevTools để tiếp tục xem nội dung.</strong></p>';
-          document.body.appendChild(shield);
-        }
-      }
-
-      function removeShield() {
-        if (shield && shield.parentNode) {
-          shield.parentNode.removeChild(shield);
-          shield = null;
-        }
-      }
-
-      function checkDevToolsStatus() {
-        var threshold = 160;
-        var widthDiff = (window.outerWidth - window.innerWidth) > threshold;
-        var heightDiff = (window.outerHeight - window.innerHeight) > threshold;
-        return widthDiff || heightDiff;
-      }
-
-      // Continuous anti-tamper debugger trap
-      setInterval(function () {
-        if (isDevToolsOpen) {
-          (function () {
-            return false;
-          }['constructor']('debugger')['call']());
-        }
-      }, 200);
-
-      function pollDevTools() {
-        var detected = checkDevToolsStatus();
-        if (detected !== isDevToolsOpen) {
-          isDevToolsOpen = detected;
-          if (isDevToolsOpen) {
-            createShield();
-          } else {
-            removeShield();
-          }
-        }
-      }
-
-      window.addEventListener('resize', pollDevTools);
-      setInterval(pollDevTools, 350);
-
-      // 7. Silent Console to prevent logging / inspection
-      try {
-        var noop = function () {};
-        ['log', 'warn', 'info', 'debug', 'dir', 'table', 'trace', 'group', 'groupCollapsed', 'groupEnd', 'time', 'timeEnd'].forEach(function (m) {
-          window.console[m] = noop;
-        });
-      } catch (err) {}
-    })();
-  </script>
 </head>
 <body>
-  <!-- Semantic crawlable HTML for search engine indexing & accessibility -->
-  <main class="sr-only">
-    <h1>Victor Pham (Pham Hoai Linh) – Senior Quality Assurance Engineer & Test Lead</h1>
-    <p>Senior QA Engineer with over 7 years of experience in Software Testing across Web, Mobile, Desktop, and Embedded platforms. Hands-on expertise spanning Insurance, Finance, and Automotive (AUTOSAR, ASPICE).</p>
 
-    <section>
-      <h2>Core Expertise & Services</h2>
-      <ul>
-        <li>Full-Stack Quality Engineering: Comprehensive testing across Web, Mobile, Desktop, and Embedded platforms. In-depth SRS/BRD requirement analysis, test design, and defect lifecycle governance.</li>
-        <li>Multi-Platform Test Automation: Scalable automation frameworks with Selenium WebDriver, Cypress, Appium, Detox, Flutter Integration Test, and Jenkins CI/CD pipelines.</li>
-        <li>Performance, API & Embedded Systems: High-concurrency load testing with JMeter, REST API contract validation with Postman, and C/C++ unit and integration testing (Cantata, RTRT) for automotive systems.</li>
-      </ul>
-    </section>
+  <!-- Client Security HUD Toast Notification -->
+  <div id="securityToast" class="security-toast">
+    <svg class="security-toast-icon" viewBox="0 0 24 24">
+      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+    </svg>
+    <span id="securityToastText">Security Notice: Action is restricted.</span>
+  </div>
 
-    <section>
-      <h2>Professional Experience</h2>
-      <article>
-        <h3>Test Lead – FPT Software (Dec 2024 – Jun 2025)</h3>
-        <p>Project: Mobile Health Insurance Platform (Hong Kong Market). Led a 10-member QA team as the Single Point of Contact (SPOC). Defined end-to-end test strategy, aligned 100% with SRS/BRD, and conducted release sign-off.</p>
-      </article>
-      <article>
-        <h3>Full Stack Tester – FPT Software (Apr 2023 – Dec 2024)</h3>
-        <p>Project: Mobile Health Insurance System (Australia Market). Built automation suites using Detox, Appium, and Cucumber. Integrated regression suites into Jenkins CI.</p>
-      </article>
-      <article>
-        <h3>Automation Tester – FPT Software (Oct 2019 – Apr 2023)</h3>
-        <p>Project: Comprehensive Insurance Product Suite (Vietnam Market). Implemented automation frameworks with Selenium WebDriver, Cypress, and Flutter. Executed performance load tests via JMeter.</p>
-      </article>
-      <article>
-        <h3>Automotive Software Tester – FPT Software (2017 – 2021)</h3>
-        <p>Projects: MCAL & AUTOSAR Basic Software modules for USA and Korea automotive platforms. Unit and integration testing using Cantata and RTRT adhering to ASPICE and ASIL-D functional safety standards.</p>
-      </article>
-    </section>
-
-    <section>
-      <h2>Honors & Awards</h2>
-      <ul>
-        <li>FSOFT Star (2023) – Top company-wide recognition</li>
-        <li>FSOFT Platinum Club (2020 – 2022)</li>
-        <li>Best Performer (2020 – 2023) – 4 consecutive years</li>
-        <li>Best Project & High Performing Squad (2020, 2021, 2022)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Certifications & Education</h2>
-      <ul>
-        <li>ISTQB Certified Tester Foundation Level</li>
-        <li>LOMA 281 – Meeting Customer Needs with Insurance and Annuities</li>
-        <li>Bachelor of Science in Information Technology – Ton Duc Thang University</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Contact Information &amp; Resume</h2>
-      <p>Email: phamhoailinh1995@gmail.com | Phone: 0559004399 | Location: Ho Chi Minh City, Vietnam</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/victorpham95/">https://www.linkedin.com/in/victorpham95/</a></p>
-      <p>Curriculum Vitae: <a href="Victor_Pham_CV.pdf" download="Victor_Pham_Senior_QA_Lead_CV.pdf">Download Victor Pham Senior QA Lead CV (PDF)</a></p>
-    </section>
-  </main>
-
-  <noscript>
-    <div style="background:#070B17;color:#fff;padding:40px;font-family:sans-serif;text-align:center;">
-      <h2>Victor Pham | Senior QA Engineer Portfolio</h2>
-      <p>Please enable JavaScript to experience the interactive portfolio application.</p>
-      <p>Email: phamhoailinh1995@gmail.com | LinkedIn: <a href="https://www.linkedin.com/in/victorpham95/" style="color:#6C7BFF;">https://www.linkedin.com/in/victorpham95/</a></p>
-    </div>
-  </noscript>
-
-  <div id="splash">
-    <div class="splash-card">
-      <div class="splash-logo">VP</div>
-      <div class="splash-title">Victor Pham</div>
-      <div class="splash-sub">Senior QA Engineer &amp; Test Lead</div>
-      <div class="splash-bar"><div class="splash-progress"></div></div>
+  <!-- Security Shield Overlay (DevTools Active) -->
+  <div id="securityShieldOverlay" class="security-shield-overlay">
+    <div class="security-shield-box">
+      <div class="security-shield-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+      </div>
+      <h3>Developer Tools Restricted</h3>
+      <p>For intellectual property protection and QA security standards, Developer Tools &amp; source inspection are restricted. Please close DevTools to continue viewing this portfolio.</p>
+      <div class="security-shield-status">● QA SECURITY DEFENSE ACTIVE</div>
     </div>
   </div>
+
+  <!-- Shared Global SVG Gradients & Definitions -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="brandGradientSvg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6C7BFF" />
+        <stop offset="50%" stop-color="#C084FC" />
+        <stop offset="100%" stop-color="#22D3EE" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Aurora Background with Moving Orbs & Grid -->
+  <div class="aurora-background">
+    <div class="aurora-grid"></div>
+    <div class="aurora-orb aurora-orb-1"></div>
+    <div class="aurora-orb aurora-orb-2"></div>
+    <div class="aurora-orb aurora-orb-3"></div>
+  </div>
+
+  <!-- Sticky Frosted Top Navigation Bar -->
+  <header class="top-nav-bar" id="topNavBar">
+    <div class="nav-container">
+      <div class="nav-logo" id="navLogo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <div class="nav-logo-box">VP</div>
+        <span class="nav-logo-text">victorpham.qa</span>
+      </div>
+
+      <nav class="nav-links">
+        <a class="nav-link" href="#about" data-target="about">
+          About
+          <span class="nav-link-indicator"></span>
+        </a>
+        <a class="nav-link" href="#skills" data-target="skills">
+          Skills
+          <span class="nav-link-indicator"></span>
+        </a>
+        <a class="nav-link" href="#experience" data-target="experience">
+          Experience
+          <span class="nav-link-indicator"></span>
+        </a>
+        <a class="nav-link" href="#education" data-target="education">
+          Education
+          <span class="nav-link-indicator"></span>
+        </a>
+        <a class="nav-link" href="#contact" data-target="contact">
+          Contact
+          <span class="nav-link-indicator"></span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn outlined compact" href="Victor_Pham_CV.pdf" target="_blank" rel="noopener">
+          Download CV
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        </a>
+        <a class="btn solid compact" href="#contact">
+          Hire me
+          <svg viewBox="0 0 24 24"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+        </a>
+      </div>
+
+      <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title gradient-text">Victor Pham</div>
+      <div class="drawer-subtitle">Senior QA Engineer</div>
+    </div>
+    <div class="drawer-items">
+      <a class="drawer-item" href="#about" onclick="closeMobileDrawer()">
+        <span class="drawer-index">01</span>
+        About
+      </a>
+      <a class="drawer-item" href="#skills" onclick="closeMobileDrawer()">
+        <span class="drawer-index">02</span>
+        Skills
+      </a>
+      <a class="drawer-item" href="#experience" onclick="closeMobileDrawer()">
+        <span class="drawer-index">03</span>
+        Experience
+      </a>
+      <a class="drawer-item" href="#education" onclick="closeMobileDrawer()">
+        <span class="drawer-index">04</span>
+        Education
+      </a>
+      <a class="drawer-item" href="#contact" onclick="closeMobileDrawer()">
+        <span class="drawer-index">05</span>
+        Contact
+      </a>
+    </div>
+    <div class="drawer-footer">
+      <a class="btn solid" style="width: 100%" href="Victor_Pham_CV.pdf" target="_blank" rel="noopener">
+        Download CV
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Space for fixed nav bar -->
+  <div style="height: 72px;"></div>
+
+  <!-- Main Scroll View -->
+  <main>
+
+    <!-- ────────────────────────── HERO SECTION ────────────────────────── -->
+    <section class="hero-section" id="hero">
+      <div class="content-width">
+        <div class="hero-layout">
+          <!-- Left: Hero Intro -->
+          <div class="hero-intro">
+            <!-- Status Badge -->
+            <div class="status-badge">
+              <div class="pulse-dot-wrapper">
+                <div class="pulse-ring"></div>
+                <div class="pulse-dot"></div>
+              </div>
+              <span class="status-text">Open to new opportunities</span>
+            </div>
+
+            <!-- Greeting & Name -->
+            <div class="hero-greeting">
+              <span>Hy! I Am</span>
+              <span style="font-size: 32px">👋</span>
+            </div>
+
+            <div class="hero-name gradient-text">Victor Pham</div>
+            <div class="hero-realname">(Pham Hoai Linh)</div>
+
+            <!-- Rotating Role with Block Cursor -->
+            <div class="rotating-role-row">
+              <span class="role-chevron">&gt;&nbsp;</span>
+              <span class="role-text" id="roleText">Senior QA Engineer</span>
+              <span class="role-cursor"></span>
+            </div>
+
+            <!-- Summary Paragraph -->
+            <p class="hero-summary">
+              Quality Assurance Lead with over 7 years optimizing test strategies, leading QA teams, and architecting scalable automation frameworks for Web, Mobile, Desktop &amp; Embedded systems across diverse international domains.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="hero-btn-row">
+              <div class="hero-btn-split">
+                <a class="btn solid" href="Victor_Pham_CV.pdf" target="_blank" rel="noopener">
+                  Download CV
+                  <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                </a>
+                <a class="btn outlined" href="#contact">
+                  Get in touch
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+              </div>
+              <a class="btn outlined full-width" href="#experience">
+                View experience
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+              </a>
+            </div>
+
+            <!-- Metadata Chips -->
+            <div class="hero-meta-wrap">
+              <div class="hero-meta-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>Ho Chi Minh City</span>
+              </div>
+              <div class="hero-meta-item">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <span>ISTQB Certified</span>
+              </div>
+              <div class="hero-meta-item">
+                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                <span>Finance · Insurance · Automotive</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Hero Portrait Showcase with Version 1 Quality Suite Runner -->
+          <div class="hero-visual">
+            <div class="hero-portrait-stage">
+              <!-- Ambient Aura behind subject -->
+              <div class="hero-ambient-aura"></div>
+              <!-- Subtle Orbital Ring -->
+              <div class="hero-orbital-ring"></div>
+
+              <!-- Portrait Photo Cutout -->
+              <div class="hero-portrait-photo-wrap">
+                <img class="hero-portrait-img" src="assets/asset/myself/main_01_nobg.webp" alt="Victor Pham Portrait" loading="eager">
+              </div>
+
+              <!-- Floating Badge 1 (Top-Right): Platinum Club -->
+              <div class="floating-hero-badge badge-platinum">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>Platinum Club</span>
+              </div>
+
+              <!-- Floating Badge 2 (Mid-Left): 7+ yrs QA -->
+              <div class="floating-hero-badge badge-qa">
+                <svg viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.51c.4 0 .62.19.4.66C12.97 17.55 11 21 11 21z"/></svg>
+                <span>7+ yrs QA</span>
+              </div>
+
+              <!-- 2. The Version 1 Quality Suite Execution Terminal (_TestRunnerCard) -->
+              <div class="test-runner-card-wrap">
+                <div class="test-runner-card">
+                  <!-- macOS Chrome Window Header -->
+                  <div class="test-runner-chrome">
+                    <div class="chrome-dots">
+                      <div class="chrome-dot red"></div>
+                      <div class="chrome-dot yellow"></div>
+                      <div class="chrome-dot green"></div>
+                    </div>
+                    <span class="chrome-title">victorpham@qa ~ run quality-suite</span>
+                  </div>
+
+                  <!-- 8 Automated Test Lines -->
+                  <div class="test-runner-body">
+                    <div class="test-line" data-index="0">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">test_strategy.plan</span>
+                      <span class="test-line-desc">Defined end-to-end</span>
+                    </div>
+                    <div class="test-line" data-index="1">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">selenium.webdriver</span>
+                      <span class="test-line-desc">Java framework</span>
+                    </div>
+                    <div class="test-line" data-index="2">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">cypress.e2e</span>
+                      <span class="test-line-desc">Web flows</span>
+                    </div>
+                    <div class="test-line" data-index="3">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">appium + detox</span>
+                      <span class="test-line-desc">Mobile UI</span>
+                    </div>
+                    <div class="test-line" data-index="4">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">flutter.integration</span>
+                      <span class="test-line-desc">Cross-platform</span>
+                    </div>
+                    <div class="test-line" data-index="5">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">jmeter.load</span>
+                      <span class="test-line-desc">Peak stability</span>
+                    </div>
+                    <div class="test-line" data-index="6">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">postman.api</span>
+                      <span class="test-line-desc">Contract checks</span>
+                    </div>
+                    <div class="test-line" data-index="7">
+                      <div class="test-line-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                      <span class="test-line-name">jenkins.pipeline</span>
+                      <span class="test-line-desc">Continuous testing</span>
+                    </div>
+
+                    <!-- Glowing Progress Bar -->
+                    <div class="test-runner-progress-bar">
+                      <div class="test-runner-progress-fill" id="runnerProgress"></div>
+                    </div>
+
+                    <!-- Status Text -->
+                    <div class="test-runner-status" id="runnerStatus">
+                      Running 0/8 checks…
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ────────────────────────── STATS ROW (_StatsRow) ────────────────────────── -->
+        <div class="stats-row-wrap">
+          <div class="stats-row-card">
+            <!-- Stat 1 -->
+            <div class="stat-col">
+              <span class="stat-value" style="color: var(--primary);">7+</span>
+              <span class="stat-label">Years of Experience</span>
+              <span class="stat-subtitle">Manual &amp; Automation QA</span>
+            </div>
+
+            <div class="stat-divider"></div>
+
+            <!-- Stat 2 -->
+            <div class="stat-col">
+              <span class="stat-value" style="color: var(--secondary);">100%</span>
+              <span class="stat-label">Regression Coverage</span>
+              <span class="stat-subtitle">Automated CI/CD Gates</span>
+            </div>
+
+            <div class="stat-divider"></div>
+
+            <!-- Stat 3 -->
+            <div class="stat-col">
+              <span class="stat-value" style="color: var(--accent);">05+</span>
+              <span class="stat-label">Major Global Domains</span>
+              <span class="stat-subtitle">Finance, Insur, Auto, Web/App</span>
+            </div>
+
+            <div class="stat-divider"></div>
+
+            <!-- Stat 4 -->
+            <div class="stat-col">
+              <span class="stat-value" style="color: var(--success);">100%</span>
+              <span class="stat-label">Defect Detection SLA</span>
+              <span class="stat-subtitle">Zero Critical Leaks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── SECTION 01: ABOUT ME ──────────────────────── -->
+    <section class="section-about" id="about">
+      <div class="content-width">
+        <!-- Exact Flutter SectionHeader -->
+        <div class="section-header">
+          <div class="section-eyebrow-row">
+            <span class="section-index">01</span>
+            <div class="section-divider"></div>
+            <span class="section-eyebrow">ABOUT ME</span>
+          </div>
+          <h2 class="section-title">Shipping quality at scale</h2>
+        </div>
+
+        <div class="about-layout">
+          <!-- Left: Profile Photo Card & Quote Box -->
+          <div class="about-left">
+            <div class="profile-photo-card">
+              <div class="profile-photo-glow"></div>
+              <img class="profile-photo-img" src="assets/asset/myself/main_01_nobg.webp" alt="Victor Pham QA Lead" loading="lazy">
+              <div class="profile-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <span>Victor Pham · QA Lead</span>
+              </div>
+            </div>
+
+            <div class="quote-card">
+              “Quality is never an accident — it is the result of a clear strategy, the right automation, and a team that cares.”
+            </div>
+          </div>
+
+          <!-- Right: Summary and 3 TagCards -->
+          <div class="about-right">
+            <p class="about-summary">
+              Results-driven Quality Assurance Lead with over 7 years of hands-on experience in Software Testing (Manual &amp; Automation). Proven track record of defining test strategies, leading QA teams, and implementing scalable automation frameworks across diverse domains including Finance, Insurance, and Automotive. Highly adaptable professional recognized for optimizing test coverage and ensuring the delivery of high-quality Web, Mobile, Desktop, and Embedded systems.
+            </p>
+
+            <!-- Tag Card 1: Domains -->
+            <div class="glass-card tag-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+              </div>
+              <div class="tag-card-content">
+                <div class="tag-card-title">Domains</div>
+                <div class="tag-card-chips">
+                  <span class="skill-chip dense">Finance</span>
+                  <span class="skill-chip dense">Insurance</span>
+                  <span class="skill-chip dense">Automotive</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tag Card 2: Platforms -->
+            <div class="glass-card tag-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"/></svg>
+              </div>
+              <div class="tag-card-content">
+                <div class="tag-card-title">Platforms</div>
+                <div class="tag-card-chips">
+                  <span class="skill-chip dense">Web</span>
+                  <span class="skill-chip dense">Mobile</span>
+                  <span class="skill-chip dense">Desktop</span>
+                  <span class="skill-chip dense">Embedded</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tag Card 3: Testing Types -->
+            <div class="glass-card tag-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>
+              </div>
+              <div class="tag-card-content">
+                <div class="tag-card-title">Testing Types</div>
+                <div class="tag-card-chips">
+                  <span class="skill-chip dense">Manual</span>
+                  <span class="skill-chip dense">Automation</span>
+                  <span class="skill-chip dense">Performance</span>
+                  <span class="skill-chip dense">API</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── SECTION 02: SKILLS & SERVICES ───────────────────── -->
+    <section class="section-skills" id="skills">
+      <div class="content-width">
+        <!-- Top Half: Intro + 3 Service Cards -->
+        <div class="skills-top-layout">
+          <!-- Left: Intro Block & Toolkit -->
+          <div class="skills-intro-col">
+            <div class="section-header">
+              <div class="section-eyebrow-row">
+                <span class="section-index">02</span>
+                <div class="section-divider"></div>
+                <span class="section-eyebrow">MY AWESOME SERVICES</span>
+              </div>
+              <h2 class="section-title">QA Services &amp; Expertise</h2>
+            </div>
+
+            <p class="skills-intro-p">
+              Specialized in delivering end-to-end quality assurance — from architecting high-level test strategies for enterprise banking and insurance products to deploying scalable multi-platform automation suites.
+            </p>
+
+            <a class="btn solid compact" href="#contact">
+              Get in Touch
+              <svg viewBox="0 0 24 24"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+            </a>
+
+            <div class="skills-toolkit-title">CORE TOOLKIT &amp; TECHNOLOGIES</div>
+            <div class="skills-chips-wrap">
+              <span class="skill-chip dense">Selenium WebDriver</span>
+              <span class="skill-chip dense">Cypress</span>
+              <span class="skill-chip dense">Appium</span>
+              <span class="skill-chip dense">Detox</span>
+              <span class="skill-chip dense">Flutter Integration</span>
+              <span class="skill-chip dense">JMeter</span>
+              <span class="skill-chip dense">Postman (API)</span>
+              <span class="skill-chip dense">Jenkins CI/CD</span>
+              <span class="skill-chip dense">Jira</span>
+              <span class="skill-chip dense">Git</span>
+              <span class="skill-chip dense">Java</span>
+              <span class="skill-chip dense">Dart</span>
+              <span class="skill-chip dense">Python</span>
+              <span class="skill-chip dense">SQL</span>
+            </div>
+          </div>
+
+          <!-- Right: 3 Service Cards -->
+          <div class="skills-cards-col">
+            <!-- Service Card 1 -->
+            <div class="glass-card service-card hoverable">
+              <div class="service-card-icon" style="background: linear-gradient(135deg, #6C7BFF, #C084FC);">
+                <svg viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9.07l-9-7-9 7 1.63 1.27L12 16z"/></svg>
+              </div>
+              <div>
+                <h3 class="service-card-title">Full-Stack Quality Engineering</h3>
+                <p class="service-card-desc">
+                  End-to-end testing across Web, Mobile, Desktop, and Embedded platforms. In-depth SRS/BRD requirement analysis, rigorous test scenario design, and strict defect lifecycle governance.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="glass-card service-card hoverable">
+              <div class="service-card-icon" style="background: linear-gradient(135deg, #22D3EE, #6C7BFF);">
+                <svg viewBox="0 0 24 24"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v5H6z"/></svg>
+              </div>
+              <div>
+                <h3 class="service-card-title">Multi-Platform Test Automation</h3>
+                <p class="service-card-desc">
+                  Architecting scalable automation frameworks across Web (Cypress, Selenium), Mobile (Appium, Detox), and Cross-Platform (Flutter Integration Test) with automated CI/CD regression suites.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="glass-card service-card hoverable">
+              <div class="service-card-icon" style="background: linear-gradient(135deg, #C084FC, #22D3EE);">
+                <svg viewBox="0 0 24 24"><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.28-10.43zM10.59 15.41a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"/></svg>
+              </div>
+              <div>
+                <h3 class="service-card-title">Performance, API &amp; Embedded Systems</h3>
+                <p class="service-card-desc">
+                  High-concurrency load testing with JMeter, REST API contract validation with Postman, and specialized C/C++ unit &amp; integration testing for automotive platforms (AUTOSAR, ASPICE, Cantata, RTRT).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Half: Commitment Section with Option 2 Badges -->
+        <div class="commitment-section">
+          <!-- Left: Commitment Rows -->
+          <div class="commitment-text-col">
+            <div class="commitment-eyebrow-row">
+              <span>CROSS-DOMAIN RELIABILITY</span>
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+
+            <h3 class="commitment-title gradient-text">
+              Mission-Critical Stability Across Insurance, Finance &amp; Automotive
+            </h3>
+
+            <p class="commitment-p">
+              From high-volume health insurance and banking systems to safety-critical automotive embedded platforms, here is how I guarantee zero-defect reliability across every sprint:
+            </p>
+
+            <!-- Commitment Row 1 -->
+            <div class="commitment-row">
+              <div class="commitment-number-circle">1</div>
+              <div>
+                <h4 class="commitment-row-title">Automotive &amp; Embedded Safety Compliance</h4>
+                <p class="commitment-row-sub">
+                  Rigorous C/C++ unit and integration testing with Cantata and RTRT, adhering strictly to AUTOSAR architectures, ASPICE processes, and ASIL-D functional safety specifications.
+                </p>
+              </div>
+            </div>
+
+            <!-- Commitment Row 2 -->
+            <div class="commitment-row">
+              <div class="commitment-number-circle">2</div>
+              <div>
+                <h4 class="commitment-row-title">Zero-Defect Insurance &amp; FinTech Platforms</h4>
+                <p class="commitment-row-sub">
+                  Comprehensive SRS/BRD traceability backed by LOMA 281 and ISTQB standards, eliminating business logic flaws and safeguarding multi-platform mobile and web applications.
+                </p>
+              </div>
+            </div>
+
+            <!-- Commitment Row 3 -->
+            <div class="commitment-row">
+              <div class="commitment-number-circle">3</div>
+              <div>
+                <h4 class="commitment-row-title">Continuous CI/CD &amp; High-Concurrency Performance</h4>
+                <p class="commitment-row-sub">
+                  Automated regression suites running continuously in Jenkins CI (Cypress, Selenium, Appium, Detox) paired with JMeter stress testing for rock-solid stability under peak traffic.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Commitment Image Showcase with User's Option 2 Badges -->
+          <div class="commitment-image-col">
+            <div class="commitment-showcase-stage">
+              <!-- Radial Aura -->
+              <div class="commitment-aura"></div>
+
+              <!-- Cutout Image -->
+              <img class="commitment-photo-img" src="assets/asset/myself/project_experience_nobg.webp" alt="Victor Pham QA Experience" loading="lazy">
+
+              <!-- Floating Option 2 Badge 1 (Left): Multi-Platform Automation -->
+              <div class="floating-skill-badge badge-commitment-left">
+                <div class="floating-skill-badge-icon">
+                  <svg viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73c.6-.34 1-.99 1-1.73 0-1.1-.9-2-2-2s-2 .9-2 2c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1zM8 12.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                </div>
+                <div>
+                  <div class="floating-skill-badge-title">Multi-Platform Automation</div>
+                  <div class="floating-skill-badge-sub">Web · Mobile · API Testing</div>
+                </div>
+              </div>
+
+              <!-- Floating Option 2 Badge 2 (Right): 85%+ Test Coverage -->
+              <div class="floating-skill-badge badge-commitment-right">
+                <div class="floating-skill-badge-icon">
+                  <svg viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.51c.4 0 .62.19.4.66C12.97 17.55 11 21 11 21z"/></svg>
+                </div>
+                <div>
+                  <div class="floating-skill-badge-title">85%+ Test Coverage</div>
+                  <div class="floating-skill-badge-sub">Zero-Regression Delivery</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────── SECTION 03: EXPERIENCE ────────────────────── -->
+    <section class="section-experience" id="experience">
+      <div class="content-width">
+        <!-- Section Header -->
+        <div class="section-header">
+          <div class="section-eyebrow-row">
+            <span class="section-index">03</span>
+            <div class="section-divider"></div>
+            <span class="section-eyebrow">PROFESSIONAL EXPERIENCE</span>
+          </div>
+          <h2 class="section-title">Where I've made an impact</h2>
+        </div>
+
+        <!-- Continuous Vertical Timeline -->
+        <div class="timeline-container">
+          <!-- Job 1 -->
+          <div class="timeline-entry">
+            <div class="timeline-rail">
+              <div class="timeline-line"></div>
+              <div class="timeline-dot">
+                <div class="timeline-dot-inner"></div>
+              </div>
+            </div>
+            <div class="timeline-card-wrap">
+              <div class="glass-card job-card hoverable">
+                <div class="job-header">
+                  <div>
+                    <h3 class="job-role">Test Lead</h3>
+                    <div class="job-company gradient-text">FPT Software</div>
+                  </div>
+                  <div class="job-period-pill">
+                    <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    <span>Dec 2024 – Jun 2025</span>
+                  </div>
+                </div>
+
+                <div class="job-project-row">
+                  <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+                  <span class="job-project-name">Mobile Health Insurance Platform</span>
+                  <span class="job-market-tag">Hong Kong Market</span>
+                </div>
+
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Directed a 10-member QA team as the Single Point of Contact (SPOC) for a key Hong Kong client.</span>
+                </div>
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Defined the end-to-end test strategy and planned testing activities, ensuring 100% alignment with business requirements (SRS, BRD).</span>
+                </div>
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Coached junior testers and streamlined the test design and review process, which reduced the defect leakage rate to production.</span>
+                </div>
+
+                <div class="job-tools-divider"></div>
+                <div class="job-tools-wrap">
+                  <span class="skill-chip dense">Test Strategy</span>
+                  <span class="skill-chip dense">SRS / BRD</span>
+                  <span class="skill-chip dense">Team Coaching</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="timeline-entry">
+            <div class="timeline-rail">
+              <div class="timeline-line"></div>
+              <div class="timeline-dot">
+                <div class="timeline-dot-inner"></div>
+              </div>
+            </div>
+            <div class="timeline-card-wrap">
+              <div class="glass-card job-card hoverable">
+                <div class="job-header">
+                  <div>
+                    <h3 class="job-role">Full Stack Tester</h3>
+                    <div class="job-company gradient-text">FPT Software</div>
+                  </div>
+                  <div class="job-period-pill">
+                    <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    <span>Apr 2023 – Dec 2024</span>
+                  </div>
+                </div>
+
+                <div class="job-project-row">
+                  <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+                  <span class="job-project-name">Mobile Health Insurance System</span>
+                  <span class="job-market-tag">Australia Market</span>
+                </div>
+
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Developed and maintained automated UI and functional test scripts using Detox, Appium, and Cucumber.</span>
+                </div>
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Conducted rigorous regression testing for new deployments, identifying and reporting critical bugs via Jira before production release.</span>
+                </div>
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Integrated automated test suites into the Jenkins pipeline to facilitate continuous testing.</span>
+                </div>
+
+                <div class="job-tools-divider"></div>
+                <div class="job-tools-wrap">
+                  <span class="skill-chip dense">Detox</span>
+                  <span class="skill-chip dense">Appium</span>
+                  <span class="skill-chip dense">Cucumber</span>
+                  <span class="skill-chip dense">Jira</span>
+                  <span class="skill-chip dense">Jenkins</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="timeline-entry">
+            <div class="timeline-rail">
+              <div class="timeline-line"></div>
+              <div class="timeline-dot">
+                <div class="timeline-dot-inner"></div>
+              </div>
+            </div>
+            <div class="timeline-card-wrap">
+              <div class="glass-card job-card hoverable">
+                <div class="job-header">
+                  <div>
+                    <h3 class="job-role">Automation Tester</h3>
+                    <div class="job-company gradient-text">FPT Software</div>
+                  </div>
+                  <div class="job-period-pill">
+                    <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    <span>Oct 2019 – Apr 2023</span>
+                  </div>
+                </div>
+
+                <div class="job-project-row">
+                  <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+                  <span class="job-project-name">Comprehensive Insurance Product Suite</span>
+                  <span class="job-market-tag">Vietnam Market</span>
+                </div>
+
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Architected and implemented robust automation frameworks utilizing Selenium WebDriver (Java), Cypress, and Flutter Integration Test.</span>
+                </div>
+                <div class="job-highlight">
+                  <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  <span>Conducted performance and load testing using JMeter, identifying system bottlenecks and ensuring application stability under peak loads.</span>
+                </div>
+
+                <div class="job-tools-divider"></div>
+                <div class="job-tools-wrap">
+                  <span class="skill-chip dense">Selenium (Java)</span>
+                  <span class="skill-chip dense">Cypress</span>
+                  <span class="skill-chip dense">Flutter Integration</span>
+                  <span class="skill-chip dense">JMeter</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── SECTION 04: EDUCATION & HONORS ───────────────────── -->
+    <section class="section-education" id="education">
+      <div class="content-width">
+        <!-- Section Header -->
+        <div class="section-header">
+          <div class="section-eyebrow-row">
+            <span class="section-index">04</span>
+            <div class="section-divider"></div>
+            <span class="section-eyebrow">EDUCATION &amp; HONORS</span>
+          </div>
+          <h2 class="section-title">Foundations &amp; recognition</h2>
+        </div>
+
+        <!-- Education Card -->
+        <div class="glass-card education-card hoverable">
+          <div class="icon-badge large">
+            <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+          </div>
+          <div>
+            <h3 class="education-degree">Bachelor of Science in Information Technology</h3>
+            <div class="education-school gradient-text">Ton Duc Thang University</div>
+          </div>
+        </div>
+
+        <!-- Honor Group: Certifications -->
+        <div class="honor-group">
+          <div class="honor-group-title">CERTIFICATIONS</div>
+          <div class="honor-grid">
+            <div class="glass-card honor-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              </div>
+              <div>
+                <div class="honor-card-title">ISTQB Foundation</div>
+                <div class="honor-card-detail">Certified Tester</div>
+              </div>
+            </div>
+
+            <div class="glass-card honor-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              </div>
+              <div>
+                <div class="honor-card-title">LOMA 281</div>
+                <div class="honor-card-detail">Meeting Customer Needs with Insurance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Honor Group: Awards -->
+        <div class="honor-group">
+          <div class="honor-group-title">AWARDS</div>
+          <div class="honor-grid">
+            <div class="glass-card honor-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 0 0 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+              </div>
+              <div>
+                <div class="honor-card-title">Best Performer FSOFT</div>
+                <div class="honor-card-detail">2020 – 2023</div>
+              </div>
+            </div>
+
+            <div class="glass-card honor-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <div>
+                <div class="honor-card-title">FSOFT Platinum Club</div>
+                <div class="honor-card-detail">2020 – 2022</div>
+              </div>
+            </div>
+
+            <div class="glass-card honor-card hoverable">
+              <div class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <div>
+                <div class="honor-card-title">FSOFT Star</div>
+                <div class="honor-card-detail">2023</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5-Card Stacked Coverflow Gallery Section -->
+        <div class="award-gallery-section">
+          <div class="award-gallery-header">
+            <span>HONORS &amp; RECOGNITION GALLERY</span>
+            <svg viewBox="0 0 24 24"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/></svg>
+          </div>
+
+          <!-- Coverflow Stage -->
+          <div class="coverflow-stage-wrap" id="coverflowStage">
+            <div class="coverflow-track" id="coverflowTrack">
+              <!-- Card 0: star_2023.webp -->
+              <div class="coverflow-card" data-index="0">
+                <img src="assets/asset/Honors/star_2023.webp" alt="FSOFT STAR Award" loading="lazy">
+                <span class="coverflow-year-badge">2023</span>
+                <div class="coverflow-zoom-icon"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></div>
+              </div>
+
+              <!-- Card 1: award_2022.webp -->
+              <div class="coverflow-card" data-index="1">
+                <img src="assets/asset/Honors/award_2022.webp" alt="FSOFT Platinum Club" loading="lazy">
+                <span class="coverflow-year-badge">2022</span>
+                <div class="coverflow-zoom-icon"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></div>
+              </div>
+
+              <!-- Card 2: award_2021_1.webp -->
+              <div class="coverflow-card" data-index="2">
+                <img src="assets/asset/Honors/award_2021_1.webp" alt="Platinum Club Award" loading="lazy">
+                <span class="coverflow-year-badge">2021</span>
+                <div class="coverflow-zoom-icon"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></div>
+              </div>
+
+              <!-- Card 3: award_2021.webp -->
+              <div class="coverflow-card" data-index="3">
+                <img src="assets/asset/Honors/award_2021.webp" alt="Best Performer 2021" loading="lazy">
+                <span class="coverflow-year-badge">2021</span>
+                <div class="coverflow-zoom-icon"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></div>
+              </div>
+
+              <!-- Card 4: award_2020.webp -->
+              <div class="coverflow-card" data-index="4">
+                <img src="assets/asset/Honors/award_2020.webp" alt="Best Performer 2020" loading="lazy">
+                <span class="coverflow-year-badge">2020</span>
+                <div class="coverflow-zoom-icon"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Caption -->
+          <div class="award-caption-box">
+            <div class="award-caption-header">
+              <span class="award-caption-year" id="awardYear">2023</span>
+              <span class="award-caption-title" id="awardTitle">FSOFT STAR Award</span>
+            </div>
+            <div class="award-caption-subtitle" id="awardSubtitle">Top Outstanding Individual Contributor</div>
+          </div>
+
+          <!-- Pagination Dots -->
+          <div class="coverflow-dots-row" id="coverflowDots">
+            <div class="coverflow-dot active" data-index="0"></div>
+            <div class="coverflow-dot" data-index="1"></div>
+            <div class="coverflow-dot" data-index="2"></div>
+            <div class="coverflow-dot" data-index="3"></div>
+            <div class="coverflow-dot" data-index="4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────── SECTION 05: CONTACT ────────────────────────── -->
+    <section class="section-contact" id="contact">
+      <div class="content-width">
+        <div class="contact-container-card">
+          <!-- SectionHeaderCentered -->
+          <div class="contact-header-centered">
+            <span class="contact-eyebrow">05 — GET IN TOUCH</span>
+            <h2 class="contact-title gradient-text">Let's build quality together</h2>
+          </div>
+
+          <p class="contact-lead">
+            Looking for a QA lead who can own test strategy end-to-end and build automation that scales? I'd love to hear about your product.
+          </p>
+
+          <!-- Buttons -->
+          <div class="contact-cta-row">
+            <a class="btn solid" href="mailto:phamhoailinh1995@gmail.com">
+              Say hello
+              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </a>
+            <a class="btn outlined" href="Victor_Pham_CV.pdf" target="_blank" rel="noopener">
+              Download CV
+              <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            </a>
+          </div>
+
+          <!-- 4 Contact Tiles Grid -->
+          <div class="contact-tiles-grid">
+            <!-- Email -->
+            <a class="contact-tile email" href="mailto:phamhoailinh1995@gmail.com">
+              <div class="contact-tile-icon-box" style="background: rgba(108, 123, 255, 0.12); border: 1px solid rgba(108, 123, 255, 0.28);">
+                <svg viewBox="0 0 24 24" style="fill: var(--primary);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+              </div>
+              <div class="contact-tile-info">
+                <div class="contact-tile-type">DIRECT EMAIL</div>
+                <div class="contact-tile-val">phamhoailinh1995@gmail.com</div>
+              </div>
+              <div class="contact-tile-arrow" style="color: var(--primary);">
+                <svg viewBox="0 0 24 24"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+              </div>
+            </a>
+
+            <!-- Phone -->
+            <a class="contact-tile phone" href="tel:0559004399">
+              <div class="contact-tile-icon-box" style="background: rgba(34, 211, 238, 0.12); border: 1px solid rgba(34, 211, 238, 0.28);">
+                <svg viewBox="0 0 24 24" style="fill: var(--secondary);"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div class="contact-tile-info">
+                <div class="contact-tile-type">PHONE / ZALO</div>
+                <div class="contact-tile-val">0559004399</div>
+              </div>
+              <div class="contact-tile-arrow" style="color: var(--secondary);">
+                <svg viewBox="0 0 24 24"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a class="contact-tile linkedin" href="https://www.linkedin.com/in/victorpham95/" target="_blank" rel="noopener">
+              <div class="contact-tile-icon-box" style="background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.28);">
+                <svg viewBox="0 0 24 24" style="fill: #38BDF8;"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+              </div>
+              <div class="contact-tile-info">
+                <div class="contact-tile-type">LINKEDIN PROFILE</div>
+                <div class="contact-tile-val">in/victorpham95</div>
+              </div>
+              <div class="contact-tile-arrow" style="color: #38BDF8;">
+                <svg viewBox="0 0 24 24"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+              </div>
+            </a>
+
+            <!-- Based In -->
+            <div class="contact-tile" style="cursor: default;">
+              <div class="contact-tile-icon-box" style="background: rgba(192, 132, 252, 0.12); border: 1px solid rgba(192, 132, 252, 0.28);">
+                <svg viewBox="0 0 24 24" style="fill: var(--accent);"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div class="contact-tile-info">
+                <div class="contact-tile-type">BASED IN</div>
+                <div class="contact-tile-val">Ho Chi Minh City, Vietnam</div>
+              </div>
+              <div class="active-badge-pill">
+                <div class="active-badge-dot"></div>
+                <span>Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer Spacer -->
+    <div class="site-footer-spacer"></div>
+
+  </main>
+
+  <!-- Back to Top Floating Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- Lightbox Modal for Honors Gallery -->
+  <div class="lightbox-modal-overlay" id="lightboxModal" onclick="closeLightbox()">
+    <div class="glass-card lightbox-modal-card" onclick="event.stopPropagation()">
+      <div class="lightbox-modal-header">
+        <span class="lightbox-year-badge" id="modalYear">2023</span>
+        <div class="lightbox-title-wrap">
+          <div class="lightbox-title" id="modalTitle">FSOFT STAR Award</div>
+          <div class="lightbox-subtitle" id="modalSubtitle">Top Outstanding Individual Contributor</div>
+        </div>
+        <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close modal">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <div class="lightbox-modal-img-wrap">
+        <img id="modalImg" src="" alt="Award Preview">
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────────────────── CLIENT JAVASCRIPT LOGIC ───────────────────────── -->
   <script>
-    (function () {
-      function dismiss() {
-        var s = document.getElementById('splash');
-        if (s && s.style.opacity !== '0') {
-          s.style.opacity = '0';
-          setTimeout(function () { if (s && s.parentNode) s.remove(); }, 350);
+    // 1. STICKY NAV & ACTIVE SECTION PROBING
+    var navBar = document.getElementById('topNavBar');
+    var backToTopBtn = document.getElementById('backToTopBtn');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var sections = ['about', 'skills', 'experience', 'education', 'contact'];
+
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY || window.pageYOffset;
+
+      // Nav bar sticky blur
+      if (y > 20) {
+        navBar.classList.add('scrolled');
+      } else {
+        navBar.classList.remove('scrolled');
+      }
+
+      // Back to top button visibility
+      if (y > 250) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+
+      // Active section probe (at 40% viewport height)
+      var probe = window.innerHeight * 0.40;
+      var activeId = '';
+      for (var i = 0; i < sections.length; i++) {
+        var el = document.getElementById(sections[i]);
+        if (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top <= probe) {
+            activeId = sections[i];
+          }
         }
       }
-      window.addEventListener('app-first-frame', dismiss, { once: true });
-      window.addEventListener(atob('Zmx1dHRlci1maXJzdC1mcmFtZQ=='), dismiss, { once: true });
-      var obs = new MutationObserver(function () {
-        if (document.querySelector('canvas')) {
-          dismiss();
-          obs.disconnect();
+
+      // If at absolute bottom, select contact
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        activeId = 'contact';
+      }
+
+      navLinks.forEach(function (link) {
+        if (link.getAttribute('data-target') === activeId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
         }
       });
-      obs.observe(document.body, { childList: true, subtree: true });
-      setTimeout(dismiss, 3500);
+    }, { passive: true });
 
-      // Register performance caching service worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-          navigator.serviceWorker.register('sw.js').catch(function () {});
-        });
+    // 2. MOBILE DRAWER INTERACTION
+    var mobileDrawer = document.getElementById('mobileDrawer');
+    var mobileDrawerOverlay = document.getElementById('mobileDrawerOverlay');
+    var navMenuBtn = document.getElementById('navMenuBtn');
+
+    navMenuBtn.addEventListener('click', function () {
+      mobileDrawer.classList.add('open');
+      mobileDrawerOverlay.classList.add('open');
+    });
+
+    mobileDrawerOverlay.addEventListener('click', closeMobileDrawer);
+
+    function closeMobileDrawer() {
+      mobileDrawer.classList.remove('open');
+      mobileDrawerOverlay.classList.remove('open');
+    }
+
+    // 3. ROTATING ROLES TYPING EFFECT
+    var roles = [
+      'Senior QA Engineer',
+      'Test Lead & SPOC',
+      'Automation Architect',
+      'Quality Strategist'
+    ];
+    var roleIndex = 0;
+    var charIndex = 0;
+    var isDeleting = false;
+    var roleTextEl = document.getElementById('roleText');
+
+    function tickRole() {
+      var current = roles[roleIndex];
+      if (!isDeleting) {
+        charIndex++;
+        roleTextEl.textContent = current.substring(0, charIndex);
+        if (charIndex >= current.length) {
+          isDeleting = true;
+          setTimeout(tickRole, 1800);
+          return;
+        }
+        setTimeout(tickRole, 85);
+      } else {
+        charIndex--;
+        roleTextEl.textContent = current.substring(0, charIndex);
+        if (charIndex <= 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(tickRole, 350);
+          return;
+        }
+        setTimeout(tickRole, 45);
       }
+    }
+    setTimeout(tickRole, 400);
+
+    // 4. VERSION 1 QUALITY SUITE RUNNER SIMULATION
+    var runnerLines = document.querySelectorAll('.test-line');
+    var runnerProgress = document.getElementById('runnerProgress');
+    var runnerStatus = document.getElementById('runnerStatus');
+    var totalChecks = runnerLines.length; // 8 checks
+    var checkStep = 0;
+
+    function tickRunner() {
+      checkStep++;
+      if (checkStep > totalChecks + 9) {
+        checkStep = 0; // loop
+      }
+
+      var shown = Math.min(checkStep, totalChecks);
+      var done = checkStep > totalChecks;
+
+      runnerLines.forEach(function (line, idx) {
+        if (idx < shown) {
+          line.classList.add('shown');
+        } else {
+          line.classList.remove('shown');
+        }
+      });
+
+      var pct = (shown / totalChecks) * 100;
+      runnerProgress.style.width = pct + '%';
+
+      if (done) {
+        runnerStatus.textContent = '✔ All checks passed — quality delivered.';
+        runnerStatus.classList.add('done');
+      } else {
+        runnerStatus.textContent = 'Running ' + shown + '/' + totalChecks + ' checks…';
+        runnerStatus.classList.remove('done');
+      }
+    }
+    setInterval(tickRunner, 420);
+
+    // 5. 5-CARD STACKED COVERFLOW GALLERIES
+    var awardData = [
+      {
+        year: '2023',
+        title: 'FSOFT STAR Award',
+        subtitle: 'Top Outstanding Individual Contributor',
+        img: 'assets/asset/Honors/star_2023.webp'
+      },
+      {
+        year: '2022',
+        title: 'FSOFT Platinum Club',
+        subtitle: 'Best Performer Recognition',
+        img: 'assets/asset/Honors/award_2022.webp'
+      },
+      {
+        year: '2021',
+        title: 'Platinum Club Award',
+        subtitle: 'Excellence in Quality Assurance',
+        img: 'assets/asset/Honors/award_2021_1.webp'
+      },
+      {
+        year: '2021',
+        title: 'Best Performer',
+        subtitle: 'Outstanding QA & Automation Contribution',
+        img: 'assets/asset/Honors/award_2021.webp'
+      },
+      {
+        year: '2020',
+        title: 'Best Performer',
+        subtitle: 'Excellence in Software Testing',
+        img: 'assets/asset/Honors/award_2020.webp'
+      }
+    ];
+
+    var currentIndex = 0;
+    var totalPhotos = awardData.length;
+    var coverflowCards = document.querySelectorAll('.coverflow-card');
+    var coverflowDots = document.querySelectorAll('.coverflow-dot');
+    var awardYearEl = document.getElementById('awardYear');
+    var awardTitleEl = document.getElementById('awardTitle');
+    var awardSubtitleEl = document.getElementById('awardSubtitle');
+    var coverflowStage = document.getElementById('coverflowStage');
+    var autoPlayTimer = null;
+    var isStageHovered = false;
+
+    function getCircularDiff(itemIdx, curIdx, total) {
+      var diff = (itemIdx - curIdx) % total;
+      if (diff > total / 2) diff -= total;
+      if (diff < -total / 2) diff += total;
+      return diff;
+    }
+
+    function renderCoverflow(activeIdx) {
+      currentIndex = (activeIdx + totalPhotos) % totalPhotos;
+
+      var stageWidth = coverflowStage.offsetWidth;
+      var isMobile = stageWidth < 640;
+      var isTablet = stageWidth < 1024;
+
+      var step1 = isMobile ? 120 : (isTablet ? 180 : 250);
+      var step2 = isMobile ? 210 : (isTablet ? 320 : 450);
+
+      coverflowCards.forEach(function (card, idx) {
+        var diff = getCircularDiff(idx, currentIndex, totalPhotos);
+        var absDiff = Math.abs(diff);
+        var sign = diff < 0 ? -1 : 1;
+
+        var dx = 0;
+        if (absDiff <= 1.0) {
+          dx = sign * absDiff * step1;
+        } else {
+          dx = sign * (step1 + (absDiff - 1.0) * (step2 - step1));
+        }
+
+        var scale = Math.max(0.66, 1.0 - (absDiff * 0.155));
+        var opacity = Math.max(0.40, 1.0 - (absDiff * 0.22));
+        var zIndex = 10 - Math.round(absDiff * 2);
+
+        card.style.transform = 'translate3d(' + dx + 'px, 0, 0) scale(' + scale + ')';
+        card.style.opacity = opacity;
+        card.style.zIndex = zIndex;
+
+        if (absDiff === 0) {
+          card.classList.add('is-center');
+        } else {
+          card.classList.remove('is-center');
+        }
+      });
+
+      // Update text
+      var curData = awardData[currentIndex];
+      awardYearEl.textContent = curData.year;
+      awardTitleEl.textContent = curData.title;
+      awardSubtitleEl.textContent = curData.subtitle;
+
+      // Update dots
+      coverflowDots.forEach(function (dot, i) {
+        if (i === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    coverflowCards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var idx = parseInt(card.getAttribute('data-index'), 10);
+        if (idx === currentIndex) {
+          openLightbox(awardData[idx]);
+        } else {
+          renderCoverflow(idx);
+          resetAutoPlay();
+        }
+      });
+    });
+
+    coverflowDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var idx = parseInt(dot.getAttribute('data-index'), 10);
+        renderCoverflow(idx);
+        resetAutoPlay();
+      });
+    });
+
+    function resetAutoPlay() {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = setInterval(function () {
+        if (!isStageHovered) {
+          renderCoverflow(currentIndex + 1);
+        }
+      }, 4000);
+    }
+
+    coverflowStage.addEventListener('mouseenter', function () { isStageHovered = true; });
+    coverflowStage.addEventListener('mouseleave', function () { isStageHovered = false; });
+
+    // Touch Swipe on mobile/tablet
+    var startTouchX = 0;
+    coverflowStage.addEventListener('touchstart', function (e) {
+      startTouchX = e.touches[0].clientX;
+    }, { passive: true });
+
+    coverflowStage.addEventListener('touchend', function (e) {
+      var endTouchX = e.changedTouches[0].clientX;
+      var diffX = endTouchX - startTouchX;
+      if (diffX > 50) {
+        renderCoverflow(currentIndex - 1);
+        resetAutoPlay();
+      } else if (diffX < -50) {
+        renderCoverflow(currentIndex + 1);
+        resetAutoPlay();
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      renderCoverflow(currentIndex);
+    });
+
+    // Init coverflow
+    renderCoverflow(0);
+    resetAutoPlay();
+
+    // 6. LIGHTBOX MODAL
+    var lightboxModal = document.getElementById('lightboxModal');
+    var modalImg = document.getElementById('modalImg');
+    var modalYear = document.getElementById('modalYear');
+    var modalTitle = document.getElementById('modalTitle');
+    var modalSubtitle = document.getElementById('modalSubtitle');
+
+    function openLightbox(item) {
+      modalImg.src = item.img;
+      modalYear.textContent = item.year;
+      modalTitle.textContent = item.title;
+      modalSubtitle.textContent = item.subtitle;
+      lightboxModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeMobileDrawer();
+      }
+    });
+
+    /* ──────────────────────────────────────────────────────────────────────────
+       SECURITY & ANTI-DEVTOOLS PROTECTION SUITE
+       Specialization: Senior QA & Security Testing (Victor Pham)
+       Features:
+         1. Author Bypass Mode (?bypass_sec=true or sessionStorage)
+         2. Context Menu & Right-Click Interception with Cyber HUD Toast
+         3. Keyboard Inspection Shortcut Suppression (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S)
+         4. Anti-Debugging Dynamic Loop
+         5. DevTools Viewport Delta & Heuristics Detection
+         6. Console Neutralization & Stylized Warning Notice
+         7. Image Drag & Drop Protection
+       ────────────────────────────────────────────────────────────────────────── */
+    (function () {
+      var isBypass = window.location.search.indexOf('bypass_sec=true') !== -1 ||
+                     sessionStorage.getItem('qa_sec_bypass') === 'true';
+
+      if (isBypass) {
+        console.warn('🔓 [QA SECURITY] Security bypass mode active for author.');
+        return;
+      }
+
+      var toast = document.getElementById('securityToast');
+      var toastText = document.getElementById('securityToastText');
+      var shieldOverlay = document.getElementById('securityShieldOverlay');
+      var toastTimeout = null;
+
+      function showSecurityToast(msg) {
+        if (!toast || !toastText) return;
+        toastText.textContent = msg || 'Security Notice: Action is restricted.';
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(function () {
+          toast.classList.remove('show');
+        }, 3200);
+      }
+
+      // 1. Right-Click / Context Menu Suppression
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        showSecurityToast('Right-click context menu is restricted on this portfolio.');
+        return false;
+      }, true);
+
+      // 2. Keyboard Inspection Shortcuts Suppression
+      window.addEventListener('keydown', function (e) {
+        var isCtrlOrCmd = e.ctrlKey || e.metaKey;
+        var isShift = e.shiftKey;
+        var isAlt = e.altKey;
+        var key = e.key ? e.key.toUpperCase() : '';
+        var keyCode = e.keyCode || e.which;
+
+        // F12
+        if (keyCode === 123 || key === 'F12') {
+          e.preventDefault();
+          e.stopPropagation();
+          showSecurityToast('F12 Developer Tools inspection is restricted.');
+          return false;
+        }
+
+        // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Chrome/Firefox/Edge)
+        // Cmd+Opt+I, Cmd+Opt+J, Cmd+Opt+C (macOS)
+        if (isCtrlOrCmd && (isShift || isAlt) && (key === 'I' || key === 'J' || key === 'C' || keyCode === 73 || keyCode === 74 || keyCode === 67)) {
+          e.preventDefault();
+          e.stopPropagation();
+          showSecurityToast('Developer Tools shortcut is restricted.');
+          return false;
+        }
+
+        // Ctrl+U / Cmd+Opt+U (View Source)
+        if (isCtrlOrCmd && (key === 'U' || keyCode === 85)) {
+          e.preventDefault();
+          e.stopPropagation();
+          showSecurityToast('View Source shortcut is restricted.');
+          return false;
+        }
+
+        // Ctrl+S / Cmd+S (Save Web Page)
+        if (isCtrlOrCmd && (key === 'S' || keyCode === 83)) {
+          e.preventDefault();
+          e.stopPropagation();
+          showSecurityToast('Page saving is restricted.');
+          return false;
+        }
+      }, true);
+
+      // 3. Prevent Dragging on images
+      document.addEventListener('dragstart', function (e) {
+        if (e.target && e.target.nodeName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      }, true);
+
+      // 4. Console Neutralization & Security Banner
+      try {
+        var banner = function () {
+          console.clear();
+          console.log(
+            "%c🔒 SECURITY NOTICE\n%cThis portfolio is hardened against unauthorized inspection and tampering.\nClient-side defensive countermeasures are actively engaged.\n\n%cVictor Pham | Senior QA & Security Engineer",
+            "color: #EF4444; font-size: 20px; font-weight: bold; font-family: sans-serif;",
+            "color: #94A3B8; font-size: 13px; line-height: 1.5; font-family: sans-serif;",
+            "color: #22D3EE; font-size: 12px; font-weight: bold; font-family: monospace;"
+          );
+        };
+        banner();
+        setInterval(banner, 4000);
+      } catch (err) {}
+
+      // 5. DevTools Window Delta Heuristics & Shield Overlay
+      function checkDevTools() {
+        var widthDiff = window.outerWidth - window.innerWidth;
+        var heightDiff = window.outerHeight - window.innerHeight;
+        var isOpen = widthDiff > 160 || heightDiff > 160;
+
+        if (shieldOverlay) {
+          shieldOverlay.style.display = isOpen ? 'flex' : 'none';
+        }
+      }
+
+      window.addEventListener('resize', checkDevTools);
+      setInterval(checkDevTools, 1000);
+
+      // 6. Active Anti-Debugger Trap
+      setInterval(function () {
+        (function antiDebug() {
+          try {
+            (function (i) {
+              if (('' + (i / i)).length !== 1 || i === 0) {
+                (function () {}).constructor('debugger')();
+              } else {
+                (function () {}).constructor('debugger')();
+              }
+            })(0);
+          } catch (e) {}
+        })();
+      }, 800);
     })();
   </script>
-  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
