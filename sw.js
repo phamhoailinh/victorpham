@@ -1,13 +1,13 @@
-const CACHE_NAME = 'vp-portfolio-cache-v1';
+const CACHE_NAME = 'vp-portfolio-cache-v2';
 const PRECACHE_ASSETS = [
   './',
   'index.html',
-  'app.bundle.js?v=11',
-  'favicon.png?v=2',
+  'flutter_bootstrap.js',
+  'favicon.png',
   'manifest.json',
-  'assets/asset/myself/main_01_nobg.png',
-  'assets/asset/myself/project_experience_nobg.png',
-  'assets/asset/myself/avatar_nobg.png',
+  'assets/asset/myself/main_01_nobg.webp',
+  'assets/asset/myself/project_experience_nobg.webp',
+  'assets/asset/myself/avatar_nobg.webp',
   'assets/AssetManifest.bin.json',
   'assets/FontManifest.json'
 ];

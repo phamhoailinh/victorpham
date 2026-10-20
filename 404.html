@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/portfolio/">
+  <script>
+    (function () {
+      var p = window.location.pathname;
+      var base = document.querySelector('base') || document.createElement('base');
+      if (p.indexOf('/portfolio') === 0) {
+        base.setAttribute('href', '/portfolio/');
+      } else {
+        base.setAttribute('href', '/');
+      }
+      if (!base.parentNode) document.head.prepend(base);
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Victor Pham | Senior QA Engineer & Test Lead Portfolio</title>
+  <meta name="title" content="Victor Pham | Senior QA Engineer & Test Lead Portfolio">
+  <meta name="description" content="Portfolio of Victor Pham (Pham Hoai Linh) – Senior Quality Assurance Engineer & Test Lead with 7+ years in manual & automation testing across Insurance, Finance, and Automotive (AUTOSAR, ASPICE).">
+  <meta name="keywords" content="Victor Pham, Pham Hoai Linh, Senior QA Engineer, Test Lead, QA Lead, Software Testing, Test Automation, Selenium, Cypress, Appium, Detox, Flutter, JMeter, Postman, AUTOSAR, ASPICE, Cantata, ISTQB, Full-Stack QA">
+  <meta name="author" content="Victor Pham (Pham Hoai Linh)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://victorpham1995.github.io/portfolio/">
+
+  <!-- Open Graph / Facebook / LinkedIn / Zalo -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://victorpham1995.github.io/portfolio/">
+  <meta property="og:site_name" content="Victor Pham Portfolio">
+  <meta property="og:title" content="Victor Pham | Senior QA Engineer & Test Lead">
+  <meta property="og:description" content="Senior QA Engineer with 7+ years leading test strategies, multi-platform test automation, and mission-critical verification in Insurance, Finance & Automotive.">
+  <meta property="og:image" content="https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png">
+  <meta property="og:image:secure_url" content="https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Victor Pham - Senior QA Engineer & Test Lead">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://victorpham1995.github.io/portfolio/">
+  <meta name="twitter:title" content="Victor Pham | Senior QA Engineer & Test Lead">
+  <meta name="twitter:description" content="Senior QA Engineer with 7+ years leading test strategies, multi-platform test automation, and mission-critical verification in Insurance, Finance & Automotive.">
+  <meta name="twitter:image" content="https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://victorpham1995.github.io/portfolio/#person",
+        "name": "Victor Pham",
+        "alternateName": "Pham Hoai Linh",
+        "jobTitle": "Senior Quality Assurance Engineer / Test Lead",
+        "email": "phamhoailinh1995@gmail.com",
+        "telephone": "+84559004399",
+        "url": "https://victorpham1995.github.io/portfolio/",
+        "image": "https://victorpham1995.github.io/portfolio/assets/asset/myself/main_01_preview_dark.png",
+        "sameAs": [
+          "https://www.linkedin.com/in/victorpham95/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ho Chi Minh City",
+          "addressCountry": "Vietnam"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Ton Duc Thang University"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "FPT Software"
+        },
+        "knowsAbout": [
+          "Software Quality Assurance",
+          "Test Automation Frameworks",
+          "Test Strategy & Planning",
+          "Selenium WebDriver",
+          "Cypress",
+          "Appium",
+          "Detox",
+          "Flutter Integration Test",
+          "JMeter Performance Testing",
+          "Postman API Testing",
+          "AUTOSAR & ASPICE Compliance",
+          "Cantata Unit & Integration Testing",
+          "ISTQB Foundation",
+          "LOMA 281 Insurance Certification"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://victorpham1995.github.io/portfolio/#website",
+        "url": "https://victorpham1995.github.io/portfolio/",
+        "name": "Victor Pham Portfolio",
+        "description": "Senior QA Engineer & Test Lead Portfolio - Victor Pham (Pham Hoai Linh)",
+        "publisher": {
+          "@id": "https://victorpham1995.github.io/portfolio/#person"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <meta name="theme-color" content="#070B17">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), vr=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://fonts.googleapis.com https://fonts.gstatic.com https://www.gstatic.com https://unpkg.com; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' blob: data: https://*.github.io https://fonts.googleapis.com https://fonts.gstatic.com https://www.gstatic.com https://unpkg.com; frame-ancestors 'none'; object-src 'none';">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Victor Pham QA">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png?v=2">
+  <link rel="icon" type="image/png" href="favicon.png?v=2"/>
+  <link rel="shortcut icon" type="image/png" href="favicon.png?v=2"/>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Performance Preloads -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap">
+  <link rel="preload" href="app.bundle.js" as="script">
+  <link rel="preload" href="assets/asset/myself/main_01_nobg.webp" as="image" type="image/webp">
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #070B17;
+      touch-action: pan-y;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+    #splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #070B17;
+      z-index: 999999;
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+    .splash-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .splash-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #6C7BFF, #A855F7 50%, #22D3EE);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Outfit', 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: -1px;
+      box-shadow: 0 12px 32px rgba(108,123,255,0.4);
+      margin-bottom: 20px;
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 12px 32px rgba(108,123,255,0.35); }
+      50% { transform: scale(1.05); box-shadow: 0 16px 40px rgba(108,123,255,0.6); }
+    }
+    .splash-title {
+      color: #F1F5FF;
+      font-family: -apple-system, BlinkMacSystemFont, 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .splash-sub {
+      color: #94A3C4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .splash-bar {
+      width: 140px;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+    .splash-progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 40%;
+      background: linear-gradient(90deg, #6C7BFF, #22D3EE);
+      border-radius: 3px;
+      animation: loadSlide 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes loadSlide {
+      0% { left: -40%; width: 40%; }
+      50% { left: 30%; width: 50%; }
+      100% { left: 100%; width: 30%; }
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Prevent iframe clickjacking / embedding
+      if (window.top !== window.self) {
+        try { window.top.location = window.self.location; }
+        catch (e) { window.location = 'about:blank'; }
+      }
+
+      // 2. Hide error stack traces
+      try { Error.stackTraceLimit = 0; } catch (e) {}
+
+      // 3. Block Context Menu & Dragging
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        return false;
+      }, { capture: true });
+
+      document.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+        return false;
+      }, { capture: true });
+
+      // 4. Block Developer Tools Shortcuts
+      document.addEventListener('keydown', function (e) {
+        var k = e.key || e.keyCode;
+        var ctrl = e.ctrlKey || e.metaKey;
+        var shift = e.shiftKey;
+        if (
+          k === 'F12' || k === 123 ||
+          (ctrl && shift && (k === 'I' || k === 'i' || k === 'J' || k === 'j' || k === 'C' || k === 'c' || k === 'K' || k === 'k' || k === 73 || k === 74 || k === 67 || k === 75)) ||
+          (ctrl && (k === 'U' || k === 'u' || k === 'S' || k === 's' || k === 85 || k === 83))
+        ) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      }, { capture: true });
+
+      // 5. Framework Camouflage: Sanitize DOM & Mask Global Variables
+      try {
+        var origSetText = Object.getOwnPropertyDescriptor(Node.prototype, 'textContent').set;
+        Object.defineProperty(HTMLParagraphElement.prototype, 'textContent', {
+          set: function (val) {
+            if (typeof val === 'string' && val.indexOf('flutter') !== -1) {
+              val = val.replace(/flutter\s*/gi, '');
+            }
+            return origSetText.call(this, val);
+          },
+          configurable: true
+        });
+
+        var domCleaner = new MutationObserver(function (mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            var added = mutations[i].addedNodes;
+            for (var j = 0; j < added.length; j++) {
+              var node = added[j];
+              if (node.nodeType === 1) {
+                if (node.tagName === 'P' && node.textContent && node.textContent.indexOf('flutter') !== -1) {
+                  node.textContent = node.textContent.replace(/flutter\s*/gi, '');
+                }
+                if (node.tagName === 'META' && node.getAttribute('name') === 'generator') {
+                  node.setAttribute('content', 'WebApp');
+                }
+              }
+            }
+          }
+        });
+        domCleaner.observe(document.documentElement, { childList: true, subtree: true });
+
+        ['flutter', '_flutter', '$dart_loader', 'dart2js', '__DART_DEVOPS__'].forEach(function (prop) {
+          try {
+            Object.defineProperty(window, prop, {
+              get: function () { return undefined; },
+              set: function () {},
+              configurable: false
+            });
+          } catch (e) {}
+        });
+      } catch (e) {}
+
+      // 6. DevTools Active Shield & Debugger Trap (Docked & Undocked)
+      var isDevToolsOpen = false;
+      var shield = null;
+
+      function createShield() {
+        if (!shield && document.body) {
+          shield = document.createElement('div');
+          shield.id = 'guard-shield';
+          shield.style.cssText = 'position:fixed;inset:0;background:#070B17;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:-apple-system,BlinkMacSystemFont,Inter,sans-serif;text-align:center;padding:24px;box-sizing:border-box;';
+          shield.innerHTML = '<div style="width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><h2 style="font-size:22px;margin:0 0 10px;font-weight:700;">Security Restricted</h2><p style="color:#94A3B8;font-size:14px;max-width:440px;line-height:1.6;margin:0 0 16px;">Môi trường kiểm tra mã nguồn (DevTools) bị hạn chế.<br><strong style="color:#E2E8F0;">Vui lòng đóng cửa sổ DevTools để tiếp tục xem nội dung.</strong></p>';
+          document.body.appendChild(shield);
+        }
+      }
+
+      function removeShield() {
+        if (shield && shield.parentNode) {
+          shield.parentNode.removeChild(shield);
+          shield = null;
+        }
+      }
+
+      function checkDevToolsStatus() {
+        var threshold = 160;
+        var widthDiff = (window.outerWidth - window.innerWidth) > threshold;
+        var heightDiff = (window.outerHeight - window.innerHeight) > threshold;
+        return widthDiff || heightDiff;
+      }
+
+      // Continuous anti-tamper debugger trap
+      setInterval(function () {
+        if (isDevToolsOpen) {
+          (function () {
+            return false;
+          }['constructor']('debugger')['call']());
+        }
+      }, 200);
+
+      function pollDevTools() {
+        var detected = checkDevToolsStatus();
+        if (detected !== isDevToolsOpen) {
+          isDevToolsOpen = detected;
+          if (isDevToolsOpen) {
+            createShield();
+          } else {
+            removeShield();
+          }
+        }
+      }
+
+      window.addEventListener('resize', pollDevTools);
+      setInterval(pollDevTools, 350);
+
+      // 7. Silent Console to prevent logging / inspection
+      try {
+        var noop = function () {};
+        ['log', 'warn', 'info', 'debug', 'dir', 'table', 'trace', 'group', 'groupCollapsed', 'groupEnd', 'time', 'timeEnd'].forEach(function (m) {
+          window.console[m] = noop;
+        });
+      } catch (err) {}
+    })();
+  </script>
+</head>
+<body>
+  <!-- Semantic crawlable HTML for search engine indexing & accessibility -->
+  <main class="sr-only">
+    <h1>Victor Pham (Pham Hoai Linh) – Senior Quality Assurance Engineer & Test Lead</h1>
+    <p>Senior QA Engineer with over 7 years of experience in Software Testing across Web, Mobile, Desktop, and Embedded platforms. Hands-on expertise spanning Insurance, Finance, and Automotive (AUTOSAR, ASPICE).</p>
+
+    <section>
+      <h2>Core Expertise & Services</h2>
+      <ul>
+        <li>Full-Stack Quality Engineering: Comprehensive testing across Web, Mobile, Desktop, and Embedded platforms. In-depth SRS/BRD requirement analysis, test design, and defect lifecycle governance.</li>
+        <li>Multi-Platform Test Automation: Scalable automation frameworks with Selenium WebDriver, Cypress, Appium, Detox, Flutter Integration Test, and Jenkins CI/CD pipelines.</li>
+        <li>Performance, API & Embedded Systems: High-concurrency load testing with JMeter, REST API contract validation with Postman, and C/C++ unit and integration testing (Cantata, RTRT) for automotive systems.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <article>
+        <h3>Test Lead – FPT Software (Dec 2024 – Jun 2025)</h3>
+        <p>Project: Mobile Health Insurance Platform (Hong Kong Market). Led a 10-member QA team as the Single Point of Contact (SPOC). Defined end-to-end test strategy, aligned 100% with SRS/BRD, and conducted release sign-off.</p>
+      </article>
+      <article>
+        <h3>Full Stack Tester – FPT Software (Apr 2023 – Dec 2024)</h3>
+        <p>Project: Mobile Health Insurance System (Australia Market). Built automation suites using Detox, Appium, and Cucumber. Integrated regression suites into Jenkins CI.</p>
+      </article>
+      <article>
+        <h3>Automation Tester – FPT Software (Oct 2019 – Apr 2023)</h3>
+        <p>Project: Comprehensive Insurance Product Suite (Vietnam Market). Implemented automation frameworks with Selenium WebDriver, Cypress, and Flutter. Executed performance load tests via JMeter.</p>
+      </article>
+      <article>
+        <h3>Automotive Software Tester – FPT Software (2017 – 2021)</h3>
+        <p>Projects: MCAL & AUTOSAR Basic Software modules for USA and Korea automotive platforms. Unit and integration testing using Cantata and RTRT adhering to ASPICE and ASIL-D functional safety standards.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Honors & Awards</h2>
+      <ul>
+        <li>FSOFT Star (2023) – Top company-wide recognition</li>
+        <li>FSOFT Platinum Club (2020 – 2022)</li>
+        <li>Best Performer (2020 – 2023) – 4 consecutive years</li>
+        <li>Best Project & High Performing Squad (2020, 2021, 2022)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Certifications & Education</h2>
+      <ul>
+        <li>ISTQB Certified Tester Foundation Level</li>
+        <li>LOMA 281 – Meeting Customer Needs with Insurance and Annuities</li>
+        <li>Bachelor of Science in Information Technology – Ton Duc Thang University</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact Information &amp; Resume</h2>
+      <p>Email: phamhoailinh1995@gmail.com | Phone: 0559004399 | Location: Ho Chi Minh City, Vietnam</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/victorpham95/">https://www.linkedin.com/in/victorpham95/</a></p>
+      <p>Curriculum Vitae: <a href="Victor_Pham_CV.pdf" download="Victor_Pham_Senior_QA_Lead_CV.pdf">Download Victor Pham Senior QA Lead CV (PDF)</a></p>
+    </section>
+  </main>
+
+  <noscript>
+    <div style="background:#070B17;color:#fff;padding:40px;font-family:sans-serif;text-align:center;">
+      <h2>Victor Pham | Senior QA Engineer Portfolio</h2>
+      <p>Please enable JavaScript to experience the interactive portfolio application.</p>
+      <p>Email: phamhoailinh1995@gmail.com | LinkedIn: <a href="https://www.linkedin.com/in/victorpham95/" style="color:#6C7BFF;">https://www.linkedin.com/in/victorpham95/</a></p>
+    </div>
+  </noscript>
+
+  <div id="splash">
+    <div class="splash-card">
+      <div class="splash-logo">VP</div>
+      <div class="splash-title">Victor Pham</div>
+      <div class="splash-sub">Senior QA Engineer &amp; Test Lead</div>
+      <div class="splash-bar"><div class="splash-progress"></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      function dismiss() {
+        var s = document.getElementById('splash');
+        if (s && s.style.opacity !== '0') {
+          s.style.opacity = '0';
+          setTimeout(function () { if (s && s.parentNode) s.remove(); }, 350);
+        }
+      }
+      window.addEventListener('app-first-frame', dismiss, { once: true });
+      window.addEventListener(atob('Zmx1dHRlci1maXJzdC1mcmFtZQ=='), dismiss, { once: true });
+      var obs = new MutationObserver(function () {
+        if (document.querySelector('canvas')) {
+          dismiss();
+          obs.disconnect();
+        }
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
+      setTimeout(dismiss, 3500);
+
+      // Register performance caching service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('sw.js').catch(function () {});
+        });
+      }
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
